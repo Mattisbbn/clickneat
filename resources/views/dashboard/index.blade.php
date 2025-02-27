@@ -30,7 +30,7 @@
     <footer class="app-footer">
 
     </footer>
-    <!--end::Footer-->
+
 </div>
 
 

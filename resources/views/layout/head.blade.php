@@ -40,8 +40,7 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="{{ asset("css/adminlte.css") }}" />
-    <!--end::Required Plugin(AdminLTE)-->
-    <!-- apexcharts -->
+
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"

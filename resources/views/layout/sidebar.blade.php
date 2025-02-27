@@ -44,11 +44,11 @@
                 <li class="nav-item">
                     <a href="{{ route("categories") }}" class="nav-link">
                         <i class="nav-icon bi bi-palette"></i>
-                        <p>Restaurants</p>
+                        <p>Categories</p>
                     </a>
                 </li>
-               <li class="nav-item menu-open">--}}
-                   <a href="#" class="nav-link active">--}}
+               {{-- <li class="nav-item menu-open">
+                   <a href="#" class="nav-link active">
                        <i class="nav-icon bi bi-speedometer"></i>
                        <p>
                            Dashboard
@@ -61,7 +61,7 @@
                                <i class="nav-icon bi bi-circle"></i>
                                <p>Dashboard v1</p>
                            </a>
-                    </li>
+                    </li> --}}
 
                    </ul>
 
