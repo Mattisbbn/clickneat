@@ -20,7 +20,7 @@
         </div>
 
         <div class="app-content">
-            <div class="container-fluid">
+            <div class="d-flex flex-column ">
                 @yield("content")
             </div>
         </div>

@@ -6,9 +6,9 @@
     <table class="table-bordered">
         <thead>
         <tr>
-            <th>id</th>
-            <th>nom</th>
-            <th class="text-center">action</th>
+            <th>Id</th>
+            <th>Nom</th>
+            <th class="text-center">Action</th>
         </tr>
         </thead>
 

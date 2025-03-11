@@ -13,9 +13,7 @@ class CategoryController extends Controller
     public function view(): View{
 
         $categories = Category::with('restaurant')->get();
-        
-     
-        return view('categories.categories', ['categories' => $categories]);
+        return view('categories.index', ['categories' => $categories]);
     }
 
     public function delete($categoryId): RedirectResponse{

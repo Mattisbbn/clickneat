@@ -1,16 +1,17 @@
 @extends("dashboard.index")
 @section("title","Categories")
+@section("name","Catégories")
 @section("content")
 
-<a class="text-center" href="{{ route("categories.create") }}">Créer une catégorie</a>
+<a class="text-center p-2 bg-white mb-2 text-black text-decoration-none rounded-3 shadow-sm" href="{{ route("categories.create") }}">Créer une catégorie</a>
 <table class="table  table-bordered">
 
     <thead>
         <tr>
-            <td>Id</td>
-            <td>Nom</td>
-            <td>Restaurant</td>
-            <td>Action</td>
+            <td class="fw-semibold">Id</td>
+            <td class="fw-semibold">Nom</td>
+            <td class="fw-semibold">Restaurant</td>
+            <td class="fw-semibold">Action</td>
         </tr>
     </thead>
 
