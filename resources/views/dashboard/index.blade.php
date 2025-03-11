@@ -2,6 +2,7 @@
 @include("layout.head")
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
 <div class="app-wrapper">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
    @include("layout.header")
    @include("layout.sidebar")
     <main class="app-main">

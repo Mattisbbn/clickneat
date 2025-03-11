@@ -77,18 +77,12 @@
                                 </p>
                             </div>
                         </div>
-                        <!--end::Message-->
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">
-                        <!--begin::Message-->
                         <div class="d-flex">
                             <div class="flex-shrink-0">
-                                <img
-                                    src="{{ asset("img/user3-128x128.jpg") }}"
-                                    alt="User Avatar"
-                                    class="img-size-50 rounded-circle me-3"
-                                />
+                                <img src="{{ asset("img/user3-128x128.jpg") }}" alt="User Avatar" class="img-size-50 rounded-circle me-3"/>
                             </div>
                             <div class="flex-grow-1">
                                 <h3 class="dropdown-item-title">
@@ -103,14 +97,11 @@
                                 </p>
                             </div>
                         </div>
-                        <!--end::Message-->
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                 </div>
             </li>
-            <!--end::Messages Dropdown Menu-->
-            <!--begin::Notifications Dropdown Menu-->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-bs-toggle="dropdown" href="#">
                     <i class="bi bi-bell-fill"></i>
@@ -137,8 +128,6 @@
                     <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
                 </div>
             </li>
-            <!--end::Notifications Dropdown Menu-->
-            <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-lte-toggle="fullscreen">
                     <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
@@ -148,9 +137,12 @@
             <li class="nav-item dropdown user-menu">
 
                 @if (Auth::check())
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        {{-- <img src="{{ asset("img/user2-160x160.jpg") }}"class="user-image rounded-circle shadow" alt="User Image"/> --}}
+                    <a href="#" class="nav-link dropdown-toggle d-flex" data-bs-toggle="dropdown">
                         <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
+                        <form action="{{ route("logout") }}" method="post">
+                            @csrf
+                            <button class="border-0 bg-white" type="submit"><i class="bi bi-box-arrow-right ms-2"></i></button>
+                        </form>
                     </a>
                 @endif
 
