@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Item;
 use App\Models\Restaurant;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -22,9 +23,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        Restaurant::factory(100)->create();
+        Restaurant::factory(25)->create();
 
-        Category::factory(100)->create();
+        Category::factory(25)->create();
+        Item::factory(10)->create();
 
     }
 }

@@ -650,7 +650,7 @@
         }
         inFullScreen() {
             const event = new Event(EVENT_MAXIMIZED);
-            const iconMaximize = document.querySelector(SELECTOR_MAXIMIZE_ICON);
+            const iconMaximize = document.querySelector(SELECTOOR_MAXIMIZE_ICON);
             const iconMinimize = document.querySelector(SELECTOR_MINIMIZE_ICON);
             void document.documentElement.requestFullscreen();
             if (iconMaximize) {
@@ -712,4 +712,3 @@
     exports.Treeview = Treeview;
 
 }));
-//# sourceMappingURL=adminlte.js.map

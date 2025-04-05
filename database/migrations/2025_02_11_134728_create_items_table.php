@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string("name",30);
+            $table->string("description");
+            $table->integer("price");
+            $table->integer("cost");
+            $table->string("image_url")->nullable();
+            $table->boolean("is_active");
+            $table->foreignId("category_id")->constrained('categories');
             $table->timestamps();
         });
     }
