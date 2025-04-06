@@ -7,7 +7,19 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get("/",function(){
+    return view('client.index');
+});
+
+
+
+
+
+
+
+
+
+// Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -15,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.index");
     Route::get("/restaurants/{id}/show",[RestaurantController::class,"show"])->name("restaurants.show");
     Route::delete("/restaurants/{id}/delete",[RestaurantController::class,"delete"])->name("restaurants.delete");
@@ -23,7 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::put("/restaurants/{id}/update",[RestaurantController::class,"update"])->name("restaurants.update");
     Route::get("/restaurants/create",[RestaurantController::class,"create"])->name("restaurants.create");
     Route::post("/restaurants",[RestaurantController::class,"store"])->name("restaurants.store");
-    
+
     Route::get("/categories",[CategoryController::class,"view"])->name("categories");
     Route::delete("/categories/{id}/delete",[CategoryController::class,"delete"])->name("categories.delete");
     Route::get("/categories/{id}/show",[CategoryController::class,"show"])->name("categories.show");
