@@ -5,7 +5,7 @@
 
         <div class="col-sm-4 col-lg-3 text-center text-sm-start">
           <div class="main-logo">
-            <a href="index.html">
+            <a href="/">
               <img src="{{ asset("logo-header.svg") }}" alt="logo" class="img-fluid">
             </a>
           </div>
@@ -22,7 +22,7 @@
               </select>
             </div>
             <div class="col-11 col-md-7">
-              <form id="search-form" class="text-center" action="index.html" method="post">
+              <form id="search-form" class="text-center" action="/" method="post">
                 <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products" />
               </form>
             </div>
