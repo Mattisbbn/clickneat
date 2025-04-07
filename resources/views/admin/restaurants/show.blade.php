@@ -5,7 +5,6 @@
             <img src="{{ $restaurant->banner_url }}" alt="Bannière du restaurant"
                  class="w-100 h-100 object-fit-cover" style="filter: brightness(70%);">
 
-            <div class="position-absolute bottom-0 start-0 p-4 text-white">
                 <h2 class=" fw-bold m-0">{{ $restaurant->name }}</h2>
                 <p>{{ $restaurant->address }}</p>
             </div>
