@@ -10,13 +10,13 @@ use Illuminate\View\View;
 
 class RestaurantController extends Controller
 {
- 
+
 
     public function view(): View{
 
         $restaurants = Restaurant::all();
 
-        return view("restaurants.index",["restaurants"=>$restaurants]);
+        return view("admin.restaurants.index",["restaurants"=>$restaurants]);
     }
 
     public function show(int $restaurantId): View{
@@ -24,7 +24,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::findOrFail($restaurantId);
         $categories = Category::where("restaurant_id", $restaurantId)->get();
 
-        return view('restaurants.show', ["restaurant" => $restaurant,"categories"=>$categories]);
+        return view('admin.restaurants.show', ["restaurant" => $restaurant,"categories"=>$categories]);
     }
 
      public function delete($id):RedirectResponse{
@@ -39,7 +39,7 @@ class RestaurantController extends Controller
 
      public function edit(int $restaurantId): View{
             $restaurant = Restaurant::findOrFail($restaurantId);
-            return view('restaurants.edit', ["restaurant"=>$restaurant]);
+            return view('admin.restaurants.edit', ["restaurant"=>$restaurant]);
      }
 
      public function update(Request $request, int $restaurantId): RedirectResponse{
@@ -52,7 +52,7 @@ class RestaurantController extends Controller
      }
 
      public function create(): View{
-            return view('restaurants.create');
+            return view('admin.restaurants.create');
      }
 
      public function store(Request $request): RedirectResponse{

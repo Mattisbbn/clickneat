@@ -1,5 +1,5 @@
 
-  <header>
+  <header class="shadow-sm">
     <div class="container-fluid">
       <div class="row py-3 border-bottom">
 
@@ -38,15 +38,12 @@
 
 
             @auth
-
-
-            <li>
-              <a href="{{ route("profile.edit") }}" class="rounded-circle bg-light p-2 mx-1">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
-              </a>
-            </li  @endauth>
-
-
+                <li>
+                <a href="{{ route("profile.edit") }}" class="rounded-circle bg-light p-2 mx-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
+                </a>
+                </li>
+            @endauth
             <li class="d-lg-none">
               <a href="#" class="rounded-circle bg-light p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
