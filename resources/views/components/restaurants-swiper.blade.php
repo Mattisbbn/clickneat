@@ -26,7 +26,7 @@
             <div class="swiper-wrapper">
 
               @foreach ($restaurants as $restaurant )
-                  . <a href="{{ route("restaurants.show",$restaurant->id) }}" class="swiper-slide">
+                  . <a href="{{ route("restaurants.show",$restaurant->id) }}" class="swiper-slide text-decoration-none">
                       <div class="card mb-3 p-3 rounded-4 shadow border-0">
                       <div class="row g-0">
                           <div class="col-md-4">

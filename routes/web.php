@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
-
-
-
+Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
 
 
 
@@ -28,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.index");
-    Route::get("/restaurants/{id}/show",[RestaurantController::class,"show"])->name("restaurants.show");
+    Route::get("/restaurants/{id}/show",[RestaurantController::class,"show"])->name("restaurants.admin.show");
     Route::delete("/restaurants/{id}/delete",[RestaurantController::class,"delete"])->name("restaurants.delete");
     Route::get("/restaurants/{id}/edit",[RestaurantController::class,"edit"])->name("restaurants.edit");
     Route::put("/restaurants/{id}/update",[RestaurantController::class,"update"])->name("restaurants.update");

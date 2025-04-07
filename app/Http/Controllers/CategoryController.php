@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Item;
 use App\Models\Restaurant;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ class CategoryController extends Controller
 
     public function show($categoryId): view{
         $category = Category::find($categoryId,["*"]);
+
         return view('categories.show', ['category' => $category]);
     }
 

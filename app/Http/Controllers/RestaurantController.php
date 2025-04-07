@@ -7,7 +7,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-
+use App\Models\Item;
 class RestaurantController extends Controller
 {
 
@@ -19,12 +19,10 @@ class RestaurantController extends Controller
         return view("admin.restaurants.index",["restaurants"=>$restaurants]);
     }
 
-    public function show(int $restaurantId): View{
-
-        $restaurant = Restaurant::findOrFail($restaurantId);
-        $categories = Category::where("restaurant_id", $restaurantId)->get();
-
-        return view('admin.restaurants.show', ["restaurant" => $restaurant,"categories"=>$categories]);
+    public function show(int $restaurantId): View
+    {
+        $restaurant = Restaurant::with('categories.items')->findOrFail($restaurantId);
+        return view('admin.restaurants.show', ["restaurant" => $restaurant]);
     }
 
      public function delete($id):RedirectResponse{

@@ -10,4 +10,9 @@ class Item extends Model
     use HasFactory;
     protected $table = "items";
     protected $fillable = ["name","description","price","cost","is_active","category_id"];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

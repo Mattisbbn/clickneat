@@ -29,14 +29,23 @@ class ItemFactory extends Factory
             'Croissant',
             'Cheesecake',
         ];
-
+        $rdmImage = $this->generateUniqueSquareImageUrl(500,500);
         return [
             "name" => fake()->randomElement($foodNames),
             "description" => "ze",
             "price" => rand(10,100),
             "cost" => rand(10,100),
             "is_active" => rand(0,1),
-            "category_id" => rand(1,10),
+            "category_id" => rand(1,200),
+            "image_url" =>$rdmImage,
         ];
+    }
+
+
+    protected function generateUniqueSquareImageUrl($width, $height)
+    {
+        // Utilise Lorem Picsum pour générer une image carrée unique
+        $randomId = $this->faker->numberBetween(1, 400); // Génère un ID aléatoire
+        return "https://picsum.photos/id/{$randomId}/{$width}/{$height}";
     }
 }

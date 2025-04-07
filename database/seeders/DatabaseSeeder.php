@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
 
         Restaurant::factory(25)->create();
 
-        Category::factory(25)->create();
-        Item::factory(10)->create();
+        Category::factory(200)->create();
+        Item::factory(400)->create();
 
     }
 }

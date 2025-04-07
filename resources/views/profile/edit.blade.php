@@ -91,7 +91,7 @@
 
 
 
-                <button class="bg-transparent px-3 py-1 rounded-2  text-warning" onclick="openModal('confirm-user-deletion')">Supprimer le compte</button>
+                <button class="mt-4 bg-transparent px-3 py-1 rounded-3 border border-2 border-danger text-danger fw-semibold m-auto" onclick="openModal('confirm-user-deletion')">Supprimer le compte</button>
 
 
 
