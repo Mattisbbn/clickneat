@@ -30,7 +30,7 @@
                       <div class="card mb-3 p-3 rounded-4 shadow border-0">
                       <div class="row g-0">
                           <div class="col-md-4">
-                          <img src="{{ $restaurant->image_url }}" class="img-fluid rounded" alt="Card title">
+                          <img src="{{ $restaurant->logo_url }}" class="img-fluid rounded" alt="Card title">
                           </div>
                           <div class="col-md-8">
                           <div class="card-body py-0">

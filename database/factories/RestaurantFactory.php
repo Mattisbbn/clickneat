@@ -17,10 +17,13 @@ class RestaurantFactory extends Factory
     public function definition(): array
     {
         $imageUrl = $this->generateUniqueSquareImageUrl(200, 200);
+        $bannerUrl = $this->generateUniqueSquareImageUrl(1920, 500);
         return [
             "name" => fake()->company(),
             "description" => fake()->text(30),
-            'image_url' => $imageUrl,
+            'logo_url' => $imageUrl,
+            'banner_url' => $bannerUrl,
+            'address' => fake()->address()
         ];
     }
     protected function generateUniqueSquareImageUrl($width, $height)

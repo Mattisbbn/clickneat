@@ -1,7 +1,26 @@
 <x-guest-layout>
 
-    <div class="d-flex flex-column p-4 m-auto main-bg">
-        <h1 class="text-center mb-4">Restaurant : {{$restaurant->name}}</h1>
+    <div class="d-flex flex-column m-auto main-bg">
+        <div class="position-relative w-100 restaurant-banner">
+            <img src="{{ $restaurant->banner_url }}" alt="Bannière du restaurant"
+                 class="w-100 h-100 object-fit-cover" style="filter: brightness(70%);">
+
+            <div class="position-absolute bottom-0 start-0 p-4 text-white">
+                <h2 class=" fw-bold m-0">{{ $restaurant->name }}</h2>
+                <p>{{ $restaurant->address }}</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
         <div>
             <h4 class="mb-2">Date de création : {{ $restaurant->created_at }}</h4>
             <h4 class="mb-2">Mis à jour le : {{ $restaurant->updated_at }}</h4>

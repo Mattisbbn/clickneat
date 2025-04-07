@@ -9,7 +9,7 @@
 }
 
 .main-bg{
-    background-color: #fcf3e4;
+    background-color: #F9FAFB;
 }
 .accent-bg{
     background-color: #e56b21;
@@ -20,4 +20,8 @@
 
 .text-danger{
     color:#DC2626 !important;
+}
+
+.restaurant-banner{
+    height: 45vh;
 }
