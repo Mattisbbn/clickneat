@@ -15,12 +15,12 @@
         <nav class="mt-2">
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route("dashboard") }}" class="nav-link">
                         <i class="nav-icon bi bi-house"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route("restaurants.index") }}" class="nav-link">
@@ -50,7 +50,7 @@
                                <p>Dashboard v1</p>
                            </a>
                     </li> --}}
-                    
+
             </ul>
         </nav>
     </div>
