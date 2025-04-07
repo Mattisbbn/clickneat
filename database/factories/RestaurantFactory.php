@@ -16,9 +16,17 @@ class RestaurantFactory extends Factory
      */
     public function definition(): array
     {
+        $imageUrl = $this->generateUniqueSquareImageUrl(200, 200);
         return [
             "name" => fake()->company(),
-
+            "description" => fake()->text(30),
+            'image_url' => $imageUrl,
         ];
+    }
+    protected function generateUniqueSquareImageUrl($width, $height)
+    {
+        // Utilise Lorem Picsum pour générer une image carrée unique
+        $randomId = $this->faker->numberBetween(1, 1000); // Génère un ID aléatoire
+        return "https://picsum.photos/id/{$randomId}/{$width}/{$height}";
     }
 }

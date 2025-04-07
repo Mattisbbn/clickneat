@@ -4,12 +4,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandpageController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get("/",function(){
-    return view('client.index');
-});
+Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
 
 
 

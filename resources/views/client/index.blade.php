@@ -49,12 +49,10 @@
         </symbol>
       </defs>
     </svg>
-
     <div class="preloader-wrapper">
       <div class="preloader">
       </div>
     </div>
-
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
       <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -113,11 +111,7 @@
         </div>
       </div>
     </div>
-
-
     <x-user-header></x-user-header>
-
-
 <main>
 
     {{-- <section class="py-3">
@@ -210,9 +204,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
-    <section class="py-5 overflow-hidden">
+    {{-- <section class="py-5 overflow-hidden">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
@@ -294,7 +288,7 @@
     </section> --}}
 
 
-    {{-- <section class="py-5 overflow-hidden">
+    <section class="py-5 overflow-hidden">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
@@ -314,102 +308,32 @@
 
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-12">
 
             <div class="brand-carousel swiper">
               <div class="swiper-wrapper">
 
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="images/product-thumb-11.jpg" class="img-fluid rounded" alt="Card title">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">Amber Jar</p>
-                          <h5 class="card-title">Honey best nectar you wish to get</h5>
+                @foreach ($restaurants as $restaurant )
+                    . <div class="swiper-slide">
+                        <div class="card mb-3 p-3 rounded-4 shadow border-0">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                            <img src="{{ $restaurant->image_url }}" class="img-fluid rounded" alt="Card title">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body py-0">
+                                <p class="text-muted mb-0">{{ $restaurant->name }}</p>
+                                <h5 class="card-title">{{ $restaurant->description }}</h5>
+                            </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="images/product-thumb-12.jpg" class="img-fluid rounded" alt="Card title">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">Amber Jar</p>
-                          <h5 class="card-title">Honey best nectar you wish to get</h5>
                         </div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="images/product-thumb-13.jpg" class="img-fluid rounded" alt="Card title">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">Amber Jar</p>
-                          <h5 class="card-title">Honey best nectar you wish to get</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="images/product-thumb-14.jpg" class="img-fluid rounded" alt="Card title">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">Amber Jar</p>
-                          <h5 class="card-title">Honey best nectar you wish to get</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="images/product-thumb-11.jpg" class="img-fluid rounded" alt="Card title">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">Amber Jar</p>
-                          <h5 class="card-title">Honey best nectar you wish to get</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="images/product-thumb-12.jpg" class="img-fluid rounded" alt="Card title">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">Amber Jar</p>
-                          <h5 class="card-title">Honey best nectar you wish to get</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
+
+
 
               </div>
             </div>
@@ -417,7 +341,7 @@
           </div>
         </div>
       </div>
-    </section> --}}
+    </section>
 
 {{-- Les plus commandés --}}
     {{-- <section class="py-5">
