@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Restaurant;
@@ -27,6 +28,6 @@ class DatabaseSeeder extends Seeder
 
         Category::factory(200)->create();
         Item::factory(400)->create();
-
+        Cart::factory(5)->create();
     }
 }

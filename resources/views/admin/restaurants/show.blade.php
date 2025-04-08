@@ -4,7 +4,7 @@
             <img src="{{ $restaurant->banner_url }}" alt="Bannière du restaurant"
                  class="w-full h-full object-cover" style="filter: brightness(70%);">
             <div class="absolute flex flex-col bottom-5 left-5">
-                <h2 class="font-bold text-2xl text-white">{{ $restaurant->name }}</h2>
+                <h2 class="font-bold text-2xl !text-white">{{ $restaurant->name }}</h2>
                 <p class="text-lg text-white">{{ $restaurant->address }}</p>
             </div>
         </div>
@@ -28,7 +28,7 @@
                                     <h5 class="text-black font-bold">{{ $item->name }}</h5>
                                     <p class="font-light">{{ $item->description }}</p>
                                     <div class="flex justify-between pt-2">
-                                        <span class="text-clementine-500 font-bold">{{ $item->price }}€</span>
+                                        <span class="!text-clementine-500 font-bold">{{ $item->price }}€</span>
                                         <button class="bg-clementine-500 rounded-2xl p-1 px-2 text-white">Ajouter</button></div>
                                     </div>
 

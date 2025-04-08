@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RestaurantController;
@@ -8,8 +9,12 @@ use App\Http\Controllers\LandpageController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
-Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
+Route::middleware('FetchUserCart')->group(function (){
+    Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
+    Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
+});
+
+
 
 
 

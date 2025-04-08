@@ -2,10 +2,6 @@
 @import './style.css';
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-
-
-
-
 *{
     font-family: "Nunito";
 }
@@ -27,3 +23,32 @@
 .restaurant-banner{
     height: 45vh;
 }
+@layer base {
+    :root {
+      --tw-text: initial;
+      --tw-heading: initial;
+      --tw-muted: initial;
+      --tw-link: initial;
+      --tw-border: initial;
+      --tw-ring: initial;
+      --tw-background: initial;
+      --tw-bg: initial;
+      --tw-fill: initial;
+    }
+  }
+
+  @theme{
+    --color-clementine-50: #fdf7ef;
+    --color-clementine-100: #fbebd9;
+    --color-clementine-200: #f7d4b1;
+    --color-clementine-300: #f1b680;
+    --color-clementine-400: #eb8f4c;
+    --color-clementine-500: #e56b21;
+    --color-clementine-600: #d7581f;
+    --color-clementine-700: #b3421b;
+    --color-clementine-800: #8f361d;
+    --color-clementine-900: #732e1b;
+    --color-clementine-950: #3e150c;
+
+  }
+
