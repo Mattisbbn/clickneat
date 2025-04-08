@@ -1,4 +1,4 @@
-@extends("layouts.auth")
+<x-auth-layout>
 
 @section("content")
 <main class="d-flex align-items-center align-items-center bg-white p-4 rounded-3 shadow flex-column">
@@ -17,7 +17,7 @@
             <input placeholder="Adresse email" class="w-100 p-1 ps-2 pe-2 rounded-3 border-0 shadow-sm" type="email" id="email" name="email" required autocomplete="email" >
             <x-input-error :messages="$errors->get('email')"/>
         </div>
-       
+
         <div class="p-2">
             <input placeholder="Mot de passe" class="w-100 p-1 ps-2 pe-2 rounded-3 border-0 shadow-sm" type="password" id="password" name="password"  required  >
             <x-input-error :messages="$errors->get('password')"/>
@@ -26,15 +26,15 @@
             <input placeholder="Confirmation mot de passe" class="w-100 p-1 ps-2 pe-2 rounded-3 border-0 shadow-sm" type="password" id="password_confirmation" name="password_confirmation"  required  >
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-    
+
 
         <div class="p-2">
             <a class="text-body-secondary" href="{{ route('login') }}">Déja inscrit ?</a>
         </div>
 
             <x-submit-button>S'inscrire</x-submit-button>
-        
+
     </form>
 </main>
-@endsection
-    
+</x-auth-layout>
+

@@ -1,4 +1,4 @@
-// import 'bootstrap';
+import './header-cart'
 import Swiper from 'swiper';
 document.addEventListener('DOMContentLoaded', function () {
     const swipers = document.querySelectorAll('.swiper-container');
@@ -13,3 +13,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+

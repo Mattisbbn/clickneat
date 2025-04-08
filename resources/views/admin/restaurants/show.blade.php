@@ -4,8 +4,8 @@
             <img src="{{ $restaurant->banner_url }}" alt="Bannière du restaurant"
                  class="w-full h-full object-cover" style="filter: brightness(70%);">
             <div class="absolute flex flex-col bottom-5 left-5">
-                <h2 class="font-bold text-2xl  text-white">{{ $restaurant->name }}</h2>
-                <p class="text-lg  text-white">{{ $restaurant->address }}</p>
+                <h2 class="font-bold text-2xl text-white">{{ $restaurant->name }}</h2>
+                <p class="text-lg text-white">{{ $restaurant->address }}</p>
             </div>
         </div>
     </div>
