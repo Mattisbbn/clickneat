@@ -8,4 +8,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        manifest: true, // Cette option est nécessaire pour générer le fichier manifeste
+      },
 });
