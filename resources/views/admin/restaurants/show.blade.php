@@ -10,18 +10,16 @@
         </div>
     </div>
 
+
     <div class="p-4">
-        <h4 class="text-lg mb-2">Date de création : {{ $restaurant->created_at }}</h4>
-        <h4 class="text-lg mb-2">Mis à jour le : {{ $restaurant->updated_at }}</h4>
-        <h4 class="text-lg mb-4 mt-4">Liste des catégories :</h4>
+
 
         @foreach ($restaurant->categories as $category)
         <div class="mb-4 overflow-hidden">
             <a href="{{ route('categories.show', [$category->id]) }}" class="text-black no-underline">
-                <h5 class="text-xl mb-2">{{ $category->name }}</h5>
+                <h2 class="font-bold text-2xl mb-2">{{ $category->name }}</h2>
             </a>
-            <div class="swiper-container  w-6/12 sm:w-3/12 md:w-2/12">
-                <div class="swiper-wrapper ">
+            <x-basic-swiper>
                     @foreach ($category->items as $item)
                         <div class="swiper-slide p-2">
                             <div class="rounded-lg bg-white shadow-md flex flex-col">
@@ -29,17 +27,15 @@
                                 <div class="p-2">
                                     <h5 class="text-black font-bold">{{ $item->name }}</h5>
                                     <p class="font-light">{{ $item->description }}</p>
-                                    <div class="flex justify-between">
-                                        <span class="text-clementine-500">{{ $item->price }}€</span>
-                                        <button>Ajouter</button></div>
+                                    <div class="flex justify-between pt-2">
+                                        <span class="text-clementine-500 font-bold">{{ $item->price }}€</span>
+                                        <button class="bg-clementine-500 rounded-2xl p-1 px-2 text-white">Ajouter</button></div>
                                     </div>
 
                             </div>
                         </div>
                     @endforeach
-                </div>
-
-            </div>
+            </x-basic-swiper>
         </div>
     @endforeach
     </div>

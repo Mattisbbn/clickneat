@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class restaurants-swiper extends Component
+class basic-swiper extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class restaurants-swiper extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.restaurants-swiper');
+        return view('components.basic-swiper');
     }
 }

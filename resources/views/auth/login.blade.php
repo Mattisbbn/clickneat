@@ -1,35 +1,42 @@
-@extends("layouts.auth")
-@section("content")
-<main class="d-flex align-items-center align-items-center bg-white p-4 rounded-3 shadow flex-column">
-    <h1 class="mb-2">Se connecter</h1>
-    <form method="POST" action="{{ route('login') }}" class="d-flex flex-column">
-        @csrf
+<x-auth-layout>
 
-        <div class="p-2">
-            <input placeholder="Adresse email" class="w-100 p-1 ps-2 pe-2 rounded-3 border-0 shadow-sm" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email">
+
+
+
+<div class="bg-white m-auto shadow-lg rounded-lg flex flex-col align-middle justify-center">
+    <img class=" mx-auto w-2/12 p-4" src="{{ asset("img/logo.svg") }}" alt="">
+    <h1 class="font-bold text-center text-xl">Bienvenue sur Click&Eat</h1>
+    <h6 class="font-semibold text-center text-gray-600">Connectez-vous pour commander</h6>
+    <form method="POST" action="{{ route('login') }}" class="d-flex flex-column w-10/12 mx-auto">
+        @csrf
+        <div class="mt-4">
+            <p class="mb-2">Adresse email</p>
+            <x-auth-input placeholder="example@email.com" id="email" type="email" name="email" value="{{ old('email') }}" />
             <x-input-error :messages="$errors->get('email')"/>
         </div>
 
-        <div class="p-2 mb-2">
-            <input placeholder="Mot de passe" class="w-100 p-1 ps-2 pe-2 rounded-3 border-0 shadow-sm" type="password" id="password" name="password"  required autocomplete="current-password" >
+        <div class="mt-4">
+            <p class="mb-2">Mot de passe</p>
+            <x-auth-input placeholder="********" type="password" id="password" name="password"  required autocomplete="current-password"/>
             <x-input-error :messages="$errors->get('password')"/>
         </div>
 
-        <div>
-            <label for="remember_me" class="d-flex align-items-center ps-2">
+        <div class="mt-4 flex justify-between">
+            <label for="remember_me" class="flex align-middle ">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">Rester connecté</span>
+                <span class="ms-2">Se souvenir de moi</span>
             </label>
+
+            @if (Route::has('password.request'))
+                <a class="text-clementine-500 font-semibold" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
+            @endif
+
         </div>
 
-        <div class="mt-2 ps-2 pe-2">
-            @if (Route::has('password.request'))
-                <a class="text-body-secondary me-2" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
-            @endif
-           
-        </div>
-        <x-submit-button>Se connecter</x-submit-button>
+
+
+        <x-submit-button class="mt-4 mb-8">Se connecter</x-submit-button>
     </form>
-</main>
+</div>
 <x-auth-session-status class="mb-4" :status="session('status')" />
-@endsection
+</x-auth-layout>
