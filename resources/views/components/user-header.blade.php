@@ -24,7 +24,7 @@
     </ul>
 
 </header>
-<aside class="h-[100dvh] w-3/12 fixed bottom-0 right-0 bg-white z-30 shadow-lg">
+<aside class="h-[100dvh]  fixed bottom-0 right-0 bg-white z-30 shadow-lg">
     <div class="h-[60px] border-b-[1px] border-gray-200 flex justify-between">
         <h2 class="text-2xl font-bold ms-5 my-auto">Votre commande</h2>
         <button class="me-3">X</button>
@@ -39,22 +39,30 @@
     @endphp
 
     @foreach ($groupedCart as $restaurantName => $items)
-        <h2 class="text-xl font-bold text-clementine-500 px-4 py-2">{{ $restaurantName }}</h2>
+    <div class=" mx-4 pt-6">
+
+
+        <h2 class=" ps-3 text-lg font-bold text-clementine-500">{{ $restaurantName }}</h2>
 
         @foreach ($items as $cartitem)
-            <div class="flex px-4 py-3 justify-between">
+            <div class="flex justify-between px-3 pb-3 pt-2">
                 <img src="{{ $cartitem->item->image_url }}" class="h-[60px] rounded-lg" alt="">
-                <div class="flex flex-col">
-                    <p>{{ $cartitem->item->name }}</p>
+                <div class="flex flex-col p-2">
+                    <p class="font-semibold">{{ $cartitem->item->name }}</p>
                     <span class="text-clementine-500 font-bold">{{ $cartitem->item->price }}€</span>
                 </div>
-                <div>{{ $cartitem->quantity }}</div>
+                <div class="p-2">{{ $cartitem->quantity }}</div>
+
             </div>
-            <div class="border-b-[1px] mx-4 w-full"></div>
+            <hr class="mx-3 px-2 border-gray-200">
         @endforeach
 
+    </div>
 
     @endforeach
+
+
+
 @endauth
 
 

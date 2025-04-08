@@ -15,12 +15,6 @@ Route::middleware('FetchUserCart')->group(function (){
 });
 
 
-
-
-
-
-
-
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
