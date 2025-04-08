@@ -32,7 +32,7 @@ class ItemFactory extends Factory
         $rdmImage = $this->generateUniqueSquareImageUrl(500,500);
         return [
             "name" => fake()->randomElement($foodNames),
-            "description" => "ze",
+            "description" => fake()->text(30),
             "price" => rand(10,100),
             "cost" => rand(10,100),
             "is_active" => rand(0,1),

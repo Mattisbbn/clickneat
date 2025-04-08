@@ -53,7 +53,7 @@
       <div class="preloader">
       </div>
     </div>
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
+    {{-- <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
       <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
@@ -110,9 +110,9 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> --}}
     <x-user-header></x-user-header>
-<main>
+<main class="main-bg">
 
 
 
@@ -124,7 +124,6 @@
 {{-- <x-user-footer></x-user-footer> --}}
 </main>
     @stack('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="{{ asset("foodmart/js/script.js") }}"></script>
   </body>
 </html>
