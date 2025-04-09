@@ -4,6 +4,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\Clients\RestaurantController as ClientRestaurantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandpageController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
+    Route::get("/restaurants",[ClientRestaurantController::class,"view"])->name("restaurants.view");
 });
 
 
@@ -24,7 +26,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.index");
+    Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.admin.index");
     Route::get("/restaurants/{id}/show",[RestaurantController::class,"show"])->name("restaurants.admin.show");
     Route::delete("/restaurants/{id}/delete",[RestaurantController::class,"delete"])->name("restaurants.delete");
     Route::get("/restaurants/{id}/edit",[RestaurantController::class,"edit"])->name("restaurants.edit");

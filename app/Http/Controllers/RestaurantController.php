@@ -13,9 +13,7 @@ class RestaurantController extends Controller
 
 
     public function view(): View{
-
         $restaurants = Restaurant::all();
-
         return view("admin.restaurants.index",["restaurants"=>$restaurants]);
     }
 
