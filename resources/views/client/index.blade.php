@@ -2,7 +2,7 @@
 
 
 
-    <section class="h-[55vh] flex relative">
+    <section class="h-[60vh] flex relative">
         <img src="{{ asset('img/landpage-bg.webp') }}" alt="" class="absolute inset-0 w-full h-full object-cover brightness-75 ">
         <div class="relative z-10 backdrop-blur w-full h-full flex flex-col my-auto">
             <div class="flex my-auto flex-col ms-[5%] ">

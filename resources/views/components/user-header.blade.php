@@ -59,17 +59,37 @@
                         <span class="text-clementine-500 font-bold">{{ $cartitem->item->price }}€</span>
                     </div>
                 </div>
-                <div class="p-2">{{ $cartitem->quantity }}</div>
+                <div class="p-2 flex flex-row gap-2 justify-center align-middle">
+                    <form class="flex m-auto" action="{{ route('cart.decrement', $cartitem->item_id) }}" method="post">
+                        @csrf
+                        @method('patch')
+                        <button class="h-6 w-6 text-clementine-500 rounded-full border-2 border-clementine-500" type="submit">-</button>
+                    </form>
+                     <p class="flex m-auto">{{ $cartitem->quantity }}</p>
+                    <form class="flex m-auto" action="{{ route('cart.increment', $cartitem->item_id) }}" method="post">
+                        @csrf
+                        @method('patch')
+                        <button class="h-6 w-6 text-clementine-500 rounded-full border-2 border-clementine-500" type="submit">+</button>
+                    </form>
+                </div>
             </div>
             <hr class="mx-3 px-2 border-gray-200">
             @endforeach
         </div>
         @endforeach
         @endauth
+
+
+        @guest
+        <div class="flex w-full h-full">
+            <p class="m-auto text-xl">Connectez-vous pour commander</p>
+        </div>
+
+        @endguest
     </div>
 
     <!-- Bouton en bas -->
     <div class="py-3 bg-white border-t border-gray-200">
-        <x-submit-button class="w-full cursor-pointer">Commander</x-submit-button>
+        <x-submit-button class="w-full cursor-pointer disabled:opacity-50" @guest disabled @endguest>Commander</x-submit-button>
     </div>
 </aside>

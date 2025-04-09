@@ -21,18 +21,20 @@
             </a>
             <x-basic-swiper>
                     @foreach ($category->items as $item)
-                        <div class="swiper-slide p-2">
+                        <form method="POST" action="{{ route("cart.store",$item->id) }}" class="swiper-slide p-2">
+                            @csrf
                             <div class="rounded-lg bg-white shadow-md flex flex-col">
                                 <img class=" rounded-t-lg" src="{{ $item->image_url }}" alt="{{ $item->name }}">
                                 <div class="p-2">
                                     <h5 class="text-black font-bold">{{ $item->name }}</h5>
                                     <p class="font-light">{{ $item->description }}</p>
+
                                     <div class="flex justify-between pt-2">
                                         <span class="!text-clementine-500 font-bold">{{ $item->price }}€</span>
                                         <button type="submit" class="bg-clementine-500 cursor-pointer rounded-2xl p-1 px-2 text-white">Ajouter</button></div>
                                     </div>
                             </div>
-                        </div>
+                        </form>
                     @endforeach
             </x-basic-swiper>
         </div>

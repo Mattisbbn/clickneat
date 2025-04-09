@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RestaurantController;
@@ -14,9 +15,14 @@ Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
     Route::get("/restaurants",[ClientRestaurantController::class,"view"])->name("restaurants.view");
+    Route::get("/panier",[CartController::class,"view"])->name("cart.index");
 });
 
-
+Route::middleware(['auth','FetchUserCart'])->group(function () {
+    Route::post("/cart/{id}/create",[CartController::class,'store'])->name("cart.store");
+    Route::patch('/cart/{id}/increment', [CartController::class, 'increment'])->name('cart.increment');
+    Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
+});
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
