@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use Illuminate\Support\Facades\View;
+
 class FetchUserCart
 {
     /**
@@ -20,7 +21,12 @@ class FetchUserCart
         if (Auth::check()) {
             $user = Auth::user();
             $cart = Cart::where('user_id', $user->id)->with('item.category.restaurant')->get();
+
+            $total = $cart->sum(function ($item) {
+                return $item->item->price * $item->quantity;
+            });
             View::share('cart', $cart);
+            View::share('total', $total);
         }
 
         return $next($request);

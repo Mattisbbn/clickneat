@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <section class="w-10/12 m-auto">
-    <h1 class="text-3xl m-4">Mes commandes</h1>
+    <h1 class="text-3xl p-4">Mes commandes</h1>
 
 
             <section class="flex">
@@ -38,22 +38,26 @@
                                 @foreach ($order->orderItems as $orderItem)
                                     <div class="flex items-center justify-between">
                                         <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->quantity }}x {{ $orderItem->item->name }}</p>
-                                        <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->price }} €</p>
+                                        <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->price * $orderItem->quantity }} €</p>
                                     </div>
 
                                 @endforeach
 
+                                <div>
+                                    <p class="!text-gray-600 font-medium mt-2">Note:
+                                         <span class="bg-gray-100 rounded-lg px-2 py-1">{{ $order->note }}</span></p>
+                                </div>
 
                                 <hr class="my-6 border-gray-200">
 
 
 
-                                <div>
-                                    <p class="!text-gray-600 font-medium mt-2">Note: {{ $order->note }}</p>
+
+
+                                <div class="flex items-center justify-between">
+                                    <h3 class="!text-gray-600 text-lg font-medium mt-2">Total</h3>
+                                    <h3 class="!text-gray-600 text-lg font-medium mt-2">{{ $total }} €</h3>
                                 </div>
-
-
-
 
                         {{-- <h4 class="font-bold text-lg">{{ $order->reservation->table->name }}</h4> --}}
 
