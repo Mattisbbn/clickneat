@@ -1,0 +1,65 @@
+<x-guest-layout>
+
+    <section class="w-10/12 m-auto">
+    <h1 class="text-3xl m-4">Mes commandes</h1>
+
+
+            <section class="flex">
+            @foreach ($orders as $order)
+                <x-card class="w-full">
+                    <div class="p-4 flex flex-col w-full">
+                        <div class="flex items-center  justify-between">
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center bg-clementine-100 w-12 h-12 rounded-lg p-2 me-4">
+                                    <i class="fa-solid fa-utensils text-xl text-clementine-500"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-bold text-xl">Commande #{{ $order->id }}</h2>
+                                    <p class="text-gray-500">{{ $order->created_at->locale('fr')->translatedFormat('d M Y, H:i') }}</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="text-clementine-500 font-bold">{{ $order->status }}</span>
+                            </div>
+                        </div>
+                        <hr class="my-6 border-gray-200">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <img src="{{ $order->restaurant->logo_url }}" class="h-12 w-12 rounded-lg me-4" alt="">
+                                <div>
+                                    <h3 class="font-bold text-xl">{{ $order->restaurant->name }}</h3>
+                                    <p class="text-gray-500">{{ $order->orderItems->count() }} articles</p>
+                                </div>
+                            </div>
+
+
+
+                                @foreach ($order->orderItems as $orderItem)
+                                    <div class="flex items-center justify-between">
+                                        <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->quantity }}x {{ $orderItem->item->name }}</p>
+                                        <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->price }} €</p>
+                                    </div>
+
+                                @endforeach
+
+
+                                <hr class="my-6 border-gray-200">
+
+
+
+                                <div>
+                                    <p class="!text-gray-600 font-medium mt-2">Note: {{ $order->note }}</p>
+                                </div>
+
+
+
+
+                        {{-- <h4 class="font-bold text-lg">{{ $order->reservation->table->name }}</h4> --}}
+
+                    </div>
+                </x-card>
+            @endforeach
+
+    </section>
+</x-guest-layout>

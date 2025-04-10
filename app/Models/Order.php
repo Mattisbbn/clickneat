@@ -8,7 +8,7 @@ class Order extends Model
 {
 
     protected $table = "orders";
-    protected $fillable = ["user_id","reservation_id","note","status"];
+    protected $fillable = ["user_id","reservation_id","restaurant_id","note","status"];
 
     public function reservation()
     {
@@ -23,5 +23,10 @@ class Order extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
     }
 }

@@ -6,7 +6,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Table;
-
+use App\Models\Reservation;
 
 class CartController extends Controller
 {
@@ -83,5 +83,4 @@ class CartController extends Controller
 
         return view("cart.index",['tables'=>$tables]);
     }
-
 }

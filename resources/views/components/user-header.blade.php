@@ -38,6 +38,8 @@
 
     <!-- Contenu scrollable -->
     <div class="overflow-y-auto scrollbar-hide grow">
+
+        @if(isset($cart))
         @auth
         @php
             $groupedCart = $cart->groupBy(function($item) {
@@ -77,7 +79,7 @@
         </div>
         @endforeach
         @endauth
-
+@endif
 
         @guest
         <div class="flex w-full h-full">
@@ -85,6 +87,7 @@
         </div>
 
         @endguest
+
     </div>
 
     <!-- Bouton en bas -->

@@ -19,7 +19,7 @@ class FetchUserCart
     {
         if (Auth::check()) {
             $user = Auth::user();
-            $cart = Cart::where('user_id', $user->id)->get();
+            $cart = Cart::where('user_id', $user->id)->with('item.category.restaurant')->get();
             View::share('cart', $cart);
         }
 
