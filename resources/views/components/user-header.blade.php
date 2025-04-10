@@ -90,6 +90,6 @@
 
     <!-- Bouton en bas -->
     <div class="py-3 bg-white border-t border-gray-200">
-        <x-submit-button class="w-full cursor-pointer disabled:opacity-50" @guest disabled @endguest>Commander</x-submit-button>
+        <x-submit-button class="w-full cursor-pointer disabled:opacity-50"><a href="{{ route('cart.index') }}">Voir le panier</a></x-submit-button>
     </div>
 </aside>
