@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("address")->nullable();
             $table->string("banner_url")->nullable();
             $table->string("logo_url")->nullable();
+            $table->time("opening_hours");
+            $table->time("closing_hours");
             $table->timestamps();
         });
     }

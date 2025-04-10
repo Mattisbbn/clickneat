@@ -9,19 +9,21 @@ use App\Http\Controllers\Clients\RestaurantController as ClientRestaurantControl
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandpageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
     Route::get("/restaurants",[ClientRestaurantController::class,"view"])->name("restaurants.view");
-    Route::get("/panier",[CartController::class,"view"])->name("cart.index");
+
 });
 
 Route::middleware(['auth','FetchUserCart'])->group(function () {
     Route::post("/cart/{id}/create",[CartController::class,'store'])->name("cart.store");
     Route::patch('/cart/{id}/increment', [CartController::class, 'increment'])->name('cart.increment');
     Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
+    Route::get("/panier",[CartController::class,"view"])->name("cart.index");
 });
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -29,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/order/validate', [OrderController::class, 'validate'])->name('order.validate');
+
 });
 
 Route::middleware('auth')->prefix('admin')->group(function () {

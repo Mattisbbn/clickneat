@@ -23,7 +23,9 @@ class RestaurantFactory extends Factory
             "description" => fake()->text(30),
             'logo_url' => $imageUrl,
             'banner_url' => $bannerUrl,
-            'address' => fake()->address()
+            'address' => fake()->address(),
+            'opening_hours' => '08:00',
+            'closing_hours' => '22:00',
         ];
     }
     protected function generateUniqueSquareImageUrl($width, $height)

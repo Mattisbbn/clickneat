@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Table;
+
 
 class CartController extends Controller
 {
@@ -72,7 +74,14 @@ class CartController extends Controller
     }
 
     public function view(){
-        return view("cart.index");
+        $userId = auth()->id();
+        $cart = Cart::where('user_id', $userId)
+                    ->with('item.category.restaurant')
+                    ->get();
+        $cartRestaurant = $cart->first()->item->category->restaurant->id;
+        $tables = Table::where('restaurant_id', $cartRestaurant)->get();
+
+        return view("cart.index",['tables'=>$tables]);
     }
 
 }

@@ -26,8 +26,7 @@
 </header>
 
 <!-- Aside caché par défaut, visible si peer checked -->
-<aside
-    class="fixed top-0 right-0 w-[400px] h-[100dvh] bg-white shadow-lg z-30 flex-col px-4 flex translate-x-full peer-checked:translate-x-0 transition-transform duration-300">
+<aside class="fixed top-0 right-0 w-[400px] h-[100dvh] bg-white shadow-lg z-30 flex-col px-4 flex translate-x-full peer-checked:translate-x-0 transition-transform duration-300">
 
     <!-- Header -->
     <div class="border-b-[1px] py-[15px] border-gray-200 flex justify-between">
@@ -90,6 +89,6 @@
 
     <!-- Bouton en bas -->
     <div class="py-3 bg-white border-t border-gray-200">
-        <x-submit-button class="w-full cursor-pointer disabled:opacity-50"><a href="{{ route('cart.index') }}">Voir le panier</a></x-submit-button>
+        <a href="{{ route('cart.index') }}"><x-submit-button class="w-full cursor-pointer disabled:opacity-50">Voir le panier</x-submit-button></a>
     </div>
 </aside>
