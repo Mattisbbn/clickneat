@@ -7,7 +7,7 @@
     font-family: "Inter";
 }
 
-.main-bg{
+.main-bg,body{
     background-color: #F9FAFB;
 }
 .accent-bg{

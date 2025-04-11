@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Ingredients;
+use App\Models\Allergens;
 
 class Item extends Model
 {
@@ -14,5 +16,22 @@ class Item extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    public function getFormattedPriceAttribute(): string
+    {
+        return number_format($this->price / 100, 2, ',', ' ') . ' €';
+    }
+    public function getFormattedCostAttribute(): string
+    {
+        return number_format($this->cost / 100, 2, ',', ' ') . ' €';
+    }
+
+    public function ingredients()
+    {
+        return $this->hasMany(Ingredients::class);
+    }
+    public function allergens()
+    {
+        return $this->hasMany(Allergens::class);
     }
 }

@@ -16,6 +16,7 @@ Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
     Route::get("/restaurants",[ClientRestaurantController::class,"view"])->name("restaurants.view");
+    Route::get("/article/{restaurant_id}/{id}",[ClientRestaurantController::class,"show"])->name("items.show");
 
 });
 

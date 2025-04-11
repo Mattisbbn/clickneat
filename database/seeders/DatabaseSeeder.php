@@ -10,6 +10,8 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Table;
+use App\Models\Allergens;
+use App\Models\Ingredients;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,7 +39,9 @@ class DatabaseSeeder extends Seeder
 
         Restaurant::factory(25)->create();
         Category::factory(200)->create();
-        Item::factory(400)->create();
+        Item::factory(250)->create();
         Table::factory(150)->create();
+        Allergens::factory(1000)->create();
+        Ingredients::factory(1000)->create();
     }
 }

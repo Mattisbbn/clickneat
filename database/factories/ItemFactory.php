@@ -33,8 +33,8 @@ class ItemFactory extends Factory
         return [
             "name" => fake()->randomElement($foodNames),
             "description" => fake()->text(30),
-            "price" => rand(10,100),
-            "cost" => rand(10,100),
+            "price" => rand(100,9999),
+            "cost" => rand(100,9999),
             "is_active" => rand(0,1),
             "category_id" => rand(1,200),
             "image_url" =>$rdmImage,

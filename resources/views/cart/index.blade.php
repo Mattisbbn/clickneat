@@ -32,7 +32,7 @@
                                     <p class="font-bold">{{ $cartitem->item->name }}</p>
                                     <p class="text-sm">{{ $cartitem->item->description }}</p>
                                     <span
-                                        class="text-clementine-500 font-semibold mt-auto">{{ $cartitem->item->price }}€</span>
+                                        class="text-clementine-500 font-semibold mt-auto">{{ $cartitem->item->formattedPrice }}€</span>
                                 </div>
                             </div>
                             <div class="p-2 flex flex-row gap-2 justify-center align-middle">

@@ -33,14 +33,11 @@
                                 </div>
                             </div>
 
-
-
                                 @foreach ($order->orderItems as $orderItem)
                                     <div class="flex items-center justify-between">
                                         <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->quantity }}x {{ $orderItem->item->name }}</p>
                                         <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->price * $orderItem->quantity }} €</p>
                                     </div>
-
                                 @endforeach
 
                                 <div>
@@ -49,10 +46,6 @@
                                 </div>
 
                                 <hr class="my-6 border-gray-200">
-
-
-
-
 
                                 <div class="flex items-center justify-between">
                                     <h3 class="!text-gray-600 text-lg font-medium mt-2">Total</h3>

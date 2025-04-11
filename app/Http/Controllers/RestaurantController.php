@@ -20,7 +20,7 @@ class RestaurantController extends Controller
     public function show(int $restaurantId): View
     {
         $restaurant = Restaurant::with('categories.items')->findOrFail($restaurantId);
-        return view('admin.restaurants.show', ["restaurant" => $restaurant]);
+        return view('client.restaurants.show', ["restaurant" => $restaurant]);
     }
 
      public function delete($id):RedirectResponse{
