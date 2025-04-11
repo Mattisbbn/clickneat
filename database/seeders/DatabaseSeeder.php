@@ -25,16 +25,19 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
+            'role' => 'admin'
         ]);
 
         User::factory()->create([
             'name' => 'Client',
             'email' => 'client@example.com',
+            'role' => 'client'
         ]);
 
         User::factory()->create([
             'name' => 'Restaurant',
             'email' => 'restaurant@example.com',
+            'role' => 'restaurateur'
         ]);
 
         Restaurant::factory(25)->create();

@@ -57,7 +57,7 @@
                     <img src="{{ $cartitem->item->image_url }}" class="h-[60px] rounded-lg" alt="">
                     <div class="flex flex-col p-2">
                         <p class="font-bold">{{ $cartitem->item->name }}</p>
-                        <span class="text-clementine-500 font-bold">{{ $cartitem->item->price }}€</span>
+                        <span class="text-clementine-500 font-bold">{{ $cartitem->item->formatedPrice }}</span>
                     </div>
                 </div>
                 <div class="p-2 flex flex-row gap-2 justify-center align-middle">

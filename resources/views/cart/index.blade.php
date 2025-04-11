@@ -32,7 +32,7 @@
                                     <p class="font-bold">{{ $cartitem->item->name }}</p>
                                     <p class="text-sm">{{ $cartitem->item->description }}</p>
                                     <span
-                                        class="text-clementine-500 font-semibold mt-auto">{{ $cartitem->item->formattedPrice }}€</span>
+                                        class="text-clementine-500 font-semibold mt-auto">{{ $cartitem->item->formatedPrice }}</span>
                                 </div>
                             </div>
                             <div class="p-2 flex flex-row gap-2 justify-center align-middle">
@@ -125,6 +125,10 @@
 
                 <x-card class="mt-6 flex flex-col">
                     <h1 class="font-bold mb-4 text-lg">Résumé de la commande</h1>
+                    <div class="flex justify-between">
+                        <h4 class="font-bold">Total</h4>
+                        <h4 class="!text-clementine-500 font-bold">{{ $total }}</h4>
+                    </div>
                 </x-card>
 
                 <x-submit-button class="w-full cursor-pointer my-8 disabled:opacity-50">Commander</x-submit-button>

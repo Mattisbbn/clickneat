@@ -16,17 +16,6 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $icons = [
-            'fa-solid fa-user',
-            'fa-solid fa-star',
-            'fa-solid fa-bolt',
-            'fa-solid fa-heart',
-            'fa-solid fa-check',
-            'fa-brands fa-github',
-            'fa-brands fa-laravel',
-            'fa-brands fa-twitter',
-        ];
-
         $categories = [
             'Boissons',
             'Entrées',
@@ -45,11 +34,11 @@ class CategoryFactory extends Factory
             'Promotions'
         ];
         $randomCategory = fake()->randomElement($categories);
-        $randomIcon = fake()->randomElement($icons);
+
         return [
             "name" => $randomCategory,
             "restaurant_id" => rand(1,25),
-            "fa_icon" => $randomIcon
+
         ];
     }
 }

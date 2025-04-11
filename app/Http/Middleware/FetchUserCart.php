@@ -25,8 +25,11 @@ class FetchUserCart
             $total = $cart->sum(function ($item) {
                 return $item->item->price * $item->quantity;
             });
+
+            $formattedTotal = number_format($total / 100, 2, ',', ' ') . ' €';
             View::share('cart', $cart);
-            View::share('total', $total);
+            View::share('total', $formattedTotal);
+
         }
 
         return $next($request);

@@ -36,7 +36,7 @@
                                 @foreach ($order->orderItems as $orderItem)
                                     <div class="flex items-center justify-between">
                                         <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->quantity }}x {{ $orderItem->item->name }}</p>
-                                        <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->price * $orderItem->quantity }} €</p>
+                                        <p class="!text-gray-600 font-medium mt-2">{{ number_format( $orderItem->price * $orderItem->quantity / 100, 2, ',', ' ') . ' €'}}</p>
                                     </div>
                                 @endforeach
 
@@ -49,7 +49,7 @@
 
                                 <div class="flex items-center justify-between">
                                     <h3 class="!text-gray-600 text-lg font-medium mt-2">Total</h3>
-                                    <h3 class="!text-gray-600 text-lg font-medium mt-2">{{ $total }} €</h3>
+                                    <h3 class="!text-gray-600 text-lg font-medium mt-2">{{ $total }}</h3>
                                 </div>
 
                         {{-- <h4 class="font-bold text-lg">{{ $order->reservation->table->name }}</h4> --}}

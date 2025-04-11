@@ -17,7 +17,7 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function getFormattedPriceAttribute(): string
+    public function getformatedPriceAttribute(): string
     {
         return number_format($this->price / 100, 2, ',', ' ') . ' €';
     }

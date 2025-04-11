@@ -48,10 +48,7 @@
         </symbol>
       </defs>
     </svg>
-    <div class="preloader-wrapper">
-      <div class="preloader">
-      </div>
-    </div>
+
 
     <x-user-header></x-user-header>
 <main class="main-bg">
@@ -63,7 +60,7 @@
 
 
 
-{{-- <x-user-footer></x-user-footer> --}}
+<x-user-footer></x-user-footer>
 </main>
     @stack('scripts')
     <script src="{{ asset("foodmart/js/script.js") }}"></script>

@@ -30,7 +30,7 @@
                                     <p class="font-light">{{ $item->description }}</p>
 
                                     <div class="flex justify-between pt-2">
-                                        <span class="!text-clementine-500 font-bold">{{ $item->formattedPrice }}€</span>
+                                        <span class="!text-clementine-500 font-bold">{{ $item->formatedPrice }}€</span>
                                         <button type="submit" class="bg-clementine-500 cursor-pointer rounded-2xl p-1 px-2 text-white">Ajouter</button></div>
                                     </div>
                             </div>

@@ -57,4 +57,21 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post("/categories",[CategoryController::class,"store"])->name("categories.store");
 });
 
+Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->group(function () {
+    Route::view("/","restaurateur.index")->name("restaurateur.index");
+    Route::resource("orders",OrderController::class);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 require __DIR__.'/auth.php';

@@ -13,7 +13,7 @@
     <div class="ps-10 pt-4 pe-4 flex flex-col">
         <h2 class="text-3xl">{{ $item->name }}</h2>
         <p class="text-md text-gray-500">{{ $item->category->name }}</p>
-        <h2 class="text-2xl !text-clementine-500 my-4">{{ $item->formattedPrice }}</h2>
+        <h2 class="text-2xl !text-clementine-500 my-4">{{ $item->formatedPrice }}</h2>
         <p class="text-md text-gray-500 mb-4">{{ $item->description }}</p>
 
         <h3 class="text-lg text-gray-500 mb-2">Ingrédients</h3>

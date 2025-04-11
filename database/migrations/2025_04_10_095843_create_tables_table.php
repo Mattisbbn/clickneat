@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
             $table->integer('places');
             $table->boolean('is_available')->default(true);
