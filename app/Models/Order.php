@@ -29,4 +29,9 @@ class Order extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    public function total()
+    {
+        return $this->orderItems()->sum('price') / 100;
+    }
 }

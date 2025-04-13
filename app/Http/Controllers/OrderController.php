@@ -44,6 +44,7 @@ class OrderController extends Controller
             $orderItem = new OrderItem();
             $orderItem->order_id = $order->id;
             $orderItem->item_id = $cartItem->item_id;
+            $orderItem->name = $cartItem->item->name;
             $orderItem->quantity = $cartItem->quantity;
             $orderItem->price = $cartItem->item->price;
             $orderItem->cost = $cartItem->item->cost;

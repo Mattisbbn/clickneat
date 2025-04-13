@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('role')->default('client');
+            $table->foreignId('restaurant_id')->nullable();
             $table->timestamps();
         });
 

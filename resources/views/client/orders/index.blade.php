@@ -4,9 +4,9 @@
     <h1 class="text-3xl p-4">Mes commandes</h1>
 
 
-            <section class="flex">
+            <section class="flex flex-wrap">
             @foreach ($orders as $order)
-                <x-card class="w-full">
+                <x-card class="w-[400px] flex m-4">
                     <div class="p-4 flex flex-col w-full">
                         <div class="flex items-center  justify-between">
                             <div class="flex items-center">
@@ -54,6 +54,7 @@
 
                         {{-- <h4 class="font-bold text-lg">{{ $order->reservation->table->name }}</h4> --}}
 
+                    </div>
                     </div>
                 </x-card>
             @endforeach

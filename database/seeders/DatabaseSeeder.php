@@ -31,13 +31,15 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Client',
             'email' => 'client@example.com',
-            'role' => 'client'
+            'role' => 'client',
+
         ]);
 
         User::factory()->create([
             'name' => 'Restaurant',
             'email' => 'restaurant@example.com',
-            'role' => 'restaurateur'
+            'role' => 'restaurateur',
+            'restaurant_id' => 1
         ]);
 
         Restaurant::factory(25)->create();
