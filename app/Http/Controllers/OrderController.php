@@ -59,4 +59,6 @@ class OrderController extends Controller
         $userOrders = Order::where('user_id', auth()->id())->with('reservation', 'reservation.table', 'orderItems', 'orderItems.item')->get();
         return view('client.orders.index', ['orders' => $userOrders]);
     }
+
+
 }

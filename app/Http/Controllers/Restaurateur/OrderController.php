@@ -12,4 +12,8 @@ class OrderController extends Controller
         $orders = Order::where('restaurant_id', auth()->user()->restaurant_id)->get();
         return view("restaurateur.orders.index", ["orders" => $orders]);
     }
+    public function show($id){
+        $order = Order::with('reservation', 'reservation.table', 'orderItems', 'orderItems.item')->findOrFail($id);
+        return view('restaurateur.orders.show', ['order' => $order]);
+    }
 }

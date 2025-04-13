@@ -32,6 +32,6 @@ class Order extends Model
 
     public function total()
     {
-        return $this->orderItems()->sum('price') / 100;
+        return number_format($this->orderItems()->sum('price') / 100, 2, ',', ' ') . ' €';
     }
 }
