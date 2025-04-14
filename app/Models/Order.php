@@ -3,12 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+enum OrderStatus: string {
+    case Pending = 'pending';
+    case Paid = 'paid';
+    case Preparing = 'preparing';
+    case Completed = 'completed';
+    case Cancelled = 'cancelled';
+}
 
 class Order extends Model
 {
 
     protected $table = "orders";
     protected $fillable = ["user_id","reservation_id","restaurant_id","note","status"];
+
+    protected $casts = [
+        "status" => OrderStatus::class
+    ];
+
 
     public function reservation()
     {

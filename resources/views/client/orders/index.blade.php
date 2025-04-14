@@ -52,7 +52,6 @@
                                     <h3 class="!text-gray-600 text-lg font-medium mt-2">{{ $order->total }}</h3>
                                 </div>
 
-                        {{-- <h4 class="font-bold text-lg">{{ $order->reservation->table->name }}</h4> --}}
 
                     </div>
                     </div>

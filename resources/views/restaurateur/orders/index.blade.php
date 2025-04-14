@@ -44,14 +44,16 @@
                         <hr class="my-6 border-gray-200">
 
                         <div class="flex items-center justify-between">
-                            <h3 class="!text-gray-600 text-lg font-medium mt-2">Total</h3>
-                            <h3 class="!text-gray-600 text-lg font-medium mt-2">{{ $order->total() }}</h3>
+                            <h3 class="!text-gray-600 text-lg font-medium mb-3">Total</h3>
+                            <h3 class="!text-clementine-500 text-lg font-bold mb-3">{{ $order->total() }}</h3>
                         </div>
 
-                {{-- <h4 class="font-bold text-lg">{{ $order->reservation->table->name }}</h4> --}}
+
 
             </div>
+            <a class="mt-auto" href="{{ route('restaurateur.orders.show', $order->id) }}"><x-primary-button class=" w-full" >Voir les détails</x-primary-button></a>
             </div>
+
         </x-card>
 
     @endforeach
