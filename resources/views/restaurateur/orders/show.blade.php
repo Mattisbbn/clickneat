@@ -20,6 +20,7 @@
                         <div>
                             <select name="status" id="status" class="bg-gray-100 rounded-lg px-2 py-1">
                                 <option value="{{ $order->status }}">{{ $order->status }}</option>
+
                             </select>
                         </div>
                     </div>
