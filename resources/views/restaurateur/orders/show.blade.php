@@ -1,9 +1,9 @@
+@php
+    use App\Models\OrderStatus;
+@endphp
 <x-restaurateur>
 
     <section class="w-8/12 mx-auto ">
-
-
-
             <x-card class="flex m-6">
                 <div class="p-4 flex flex-col w-full">
                     <div class="flex items-center  justify-between">
@@ -18,10 +18,16 @@
                         </div>
 
                         <div>
-                            <select name="status" id="status" class="bg-gray-100 rounded-lg px-2 py-1">
-                                <option value="{{ $order->status }}">{{ $order->status }}</option>
+                            <form action="{{ route('restaurateur.orders.update', $order->id) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <select name="status" id="status" class="bg-gray-100 rounded-lg px-2 py-1">
 
-                            </select>
+                                    @foreach (OrderStatus::cases() as $status)
+                                        <option value="{{ $status->value }}" {{ $order->status->value === $status->value ? 'selected' : '' }}>{{ $status->value }}</option>
+                                    @endforeach
+                                </select>
+                            </form>
                         </div>
                     </div>
                     <hr class="my-6 border-gray-200">
@@ -34,29 +40,27 @@
                             </div>
                         </div>
 
-                            @foreach ($order->orderItems as $orderItem)
-                                <div class="flex items-center justify-between">
-                                    <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->quantity }}x {{ $orderItem->item->name }}</p>
-                                    <p class="!text-gray-600 font-medium mt-2">{{ number_format( $orderItem->price * $orderItem->quantity / 100, 2, ',', ' ') . ' €'}}</p>
-                                </div>
-                            @endforeach
-
-                            <div>
-                                <p class="!text-gray-600 font-medium mt-2">Note:
-                                     <span class="bg-gray-100 rounded-lg px-2 py-1">{{ $order->note }}</span></p>
-                            </div>
-
-                            <hr class="my-6 border-gray-200">
-
+                        @foreach ($order->orderItems as $orderItem)
                             <div class="flex items-center justify-between">
-                                <h3 class="!text-gray-600 text-lg font-medium mb-3">Total</h3>
-                                <h3 class="!text-clementine-500 text-lg font-bold mb-3">{{ $order->total() }}</h3>
+                                <p class="!text-gray-600 font-medium mt-2">{{ $orderItem->quantity }}x {{ $orderItem->item->name }}</p>
+                                <p class="!text-gray-600 font-medium mt-2">{{ number_format( $orderItem->price * $orderItem->quantity / 100, 2, ',', ' ') . ' €'}}</p>
                             </div>
+                        @endforeach
+
+                        <div>
+                            <p class="!text-gray-600 font-medium mt-2">Note:
+                                 <span class="bg-gray-100 rounded-lg px-2 py-1">{{ $order->note }}</span></p>
+                        </div>
+
+                        <hr class="my-6 border-gray-200">
+
+                        <div class="flex items-center justify-between">
+                            <h3 class="!text-gray-600 text-lg font-medium mb-3">Total</h3>
+                            <h3 class="!text-clementine-500 text-lg font-bold mb-3">{{ $order->total() }}</h3>
+                        </div>
 
 
 
-                </div>
-                <a class="mt-auto" href="{{ route('restaurateur.orders.show', $order->id) }}"><x-primary-button class=" w-full" >Voir les détails</x-primary-button></a>
                 </div>
 
             </x-card>
@@ -66,3 +70,4 @@
 
 
  </x-restaurateur>
+<script src="{{ asset('js/submitonselect.js') }}"></script>

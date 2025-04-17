@@ -16,4 +16,11 @@ class OrderController extends Controller
         $order = Order::with('reservation', 'reservation.table', 'orderItems', 'orderItems.item')->findOrFail($id);
         return view('restaurateur.orders.show', ['order' => $order]);
     }
+
+    public function update(Request $request, $id){
+        $order = Order::findOrFail($id);
+        $order->status = $request->status;
+        $order->save();
+        return redirect()->back();
+    }
 }
