@@ -50,7 +50,7 @@
     </svg>
     <x-user-header></x-user-header>
 
-<main class="main-bg flex">
+<main class="main-bg flex min-h-screen">
     <x-aside-menu></x-aside-menu>
 {{ $slot }}
 

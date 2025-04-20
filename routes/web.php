@@ -11,6 +11,7 @@ use App\Http\Controllers\LandpageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Restaurateur\OrderController as RestaurateurOrderController;
+use App\Http\Controllers\Restaurateur\ItemsController as RestaurateurItemController;
 
 
 Route::middleware('FetchUserCart')->group(function (){
@@ -61,6 +62,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->name("restaurateur.")->group(function () {
     Route::view("/","restaurateur.index")->name("restaurateur.index");
     Route::resource("orders",RestaurateurOrderController::class);
+    Route::resource("items",RestaurateurItemController::class);
 });
 
 
