@@ -2,7 +2,7 @@
 
     <section class="flex flex-wrap">
         <x-card class="m-5">
-        <table>
+            <table class="table-auto w-fit">
             <thead>
                 <tr>
                     <th>Nom</th>
@@ -14,10 +14,11 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
+                        <td></td>
+                        {{-- <td>{{ $item->name }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->name }}</td> --}}
                     </tr>
                 @endforeach
             </tbody>

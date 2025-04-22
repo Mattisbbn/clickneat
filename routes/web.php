@@ -60,7 +60,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 });
 
 Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->name("restaurateur.")->group(function () {
-    Route::view("/","restaurateur.index")->name("restaurateur.index");
+    Route::get("/",[RestaurateurOrderController::class,"index"])->name("restaurateur.index");
     Route::resource("orders",RestaurateurOrderController::class);
     Route::resource("items",RestaurateurItemController::class);
 });
