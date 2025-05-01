@@ -1,8 +1,4 @@
 <x-auth-layout>
-
-
-
-
 <div class="bg-white m-auto shadow-lg rounded-lg flex flex-col align-middle justify-center">
     <img class=" mx-auto w-2/12 p-4" src="{{ asset("img/logo.svg") }}" alt="">
     <h1 class="font-bold text-center text-xl">Bienvenue sur Click&Eat</h1>
@@ -35,7 +31,11 @@
 
 
 
-        <x-submit-button class="mt-4 mb-8">Se connecter</x-submit-button>
+        <x-submit-button class="mt-4 mb-3">Se connecter</x-submit-button>
+
+        <p class="text-center mb-4">
+            Pas encore de compte ? <a class="text-clementine-500 font-semibold hover:underline" href="{{ route('register') }}">Créer mon compte</a>
+        </p>
     </form>
 </div>
 <x-auth-session-status class="mb-4" :status="session('status')" />

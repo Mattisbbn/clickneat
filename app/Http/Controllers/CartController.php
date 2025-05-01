@@ -41,35 +41,47 @@ class CartController extends Controller
         return back()->with('success', 'Article ajouté au panier !');
     }// Ajoute un nouvel item dans le panier.
 
+    // Incrémente la quantité d'un article dans le panier pour l'utilisateur connecté
     public function increment(int $id){
+        // Récupère l'identifiant de l'utilisateur connecté
         $userId = auth()->id();
+        // Recherche si l'article existe déjà dans le panier de l'utilisateur
         $existingCartItem = Cart::where('user_id', $userId)->where('item_id', $id)->first();
 
         if(!$existingCartItem){
+            // Si l'article n'existe pas, on l'ajoute avec une quantité de 1
             $cart = new Cart();
             $cart->item_id = $id;
             $cart->user_id = $userId;
             $cart->quantity = 1;
             $cart->save();
         }else{
+            // Si l'article existe déjà, on augmente la quantité de 1
             $existingCartItem->quantity += 1;
             $existingCartItem->save();
         }
 
-
+        // Retourne à la page précédente avec un message de succès
         return back()->with('success', 'Article ajouté au panier !');
     }
+
+    // Décrémente la quantité d'un article dans le panier pour l'utilisateur connecté
     public function decrement(int $id){
+        // Récupère l'identifiant de l'utilisateur connecté
         $userId = auth()->id();
+        // Recherche l'article dans le panier de l'utilisateur
         $existingCartItem = Cart::where('user_id', $userId)->where('item_id', $id)->first();
 
         if($existingCartItem->quantity === 1){
+            // Si la quantité est 1, on retire l'article du panier
             $existingCartItem->delete();
         }else{
+            // Sinon, on diminue la quantité de 1
             $existingCartItem->quantity -= 1;
             $existingCartItem->save();
         }
 
+        // Retourne à la page précédente avec un message de succès
         return back()->with('success', 'Article retiré du panier !');
     }
 

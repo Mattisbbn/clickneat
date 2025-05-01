@@ -22,7 +22,7 @@ Route::middleware('FetchUserCart')->group(function (){
 
 });
 
-Route::middleware(['auth','FetchUserCart'])->group(function () {
+Route::middleware(['auth','FetchUserCart','Role:client'])->group(function () {
     Route::post("/cart/{id}/create",[CartController::class,'store'])->name("cart.store");
     Route::patch('/cart/{id}/increment', [CartController::class, 'increment'])->name('cart.increment');
     Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
     Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.admin.index");
     Route::get("/restaurants/{id}/show",[RestaurantController::class,"show"])->name("restaurants.admin.show");
     Route::delete("/restaurants/{id}/delete",[RestaurantController::class,"delete"])->name("restaurants.delete");
