@@ -34,7 +34,7 @@
         <form method="POST" action="{{ route("cart.store",$item->id) }}" class="mt-auto">
             @csrf
             <br>
-            <x-submit-button class="mb-4 me-4">Ajouter au panier</x-submit-button>
+            <x-submit-button class="mb-4 me-4 w-full">Ajouter au panier</x-submit-button>
         </form>
     </div>
 </x-card>

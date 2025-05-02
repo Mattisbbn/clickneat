@@ -31,7 +31,7 @@
 
 
 
-        <x-submit-button class="mt-4 mb-3">Se connecter</x-submit-button>
+        <x-submit-button class="mt-4 mb-3 w-full">Se connecter</x-submit-button>
 
         <p class="text-center mb-4">
             Pas encore de compte ? <a class="text-clementine-500 font-semibold hover:underline" href="{{ route('register') }}">Créer mon compte</a>

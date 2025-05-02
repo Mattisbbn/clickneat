@@ -1,184 +1,114 @@
 <x-guest-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
-            <section class="mt-3 mb-4 p-4 rounded-3 shadow d-flex m-auto flex-column col-10 col-xl-5">
-                <h2 class="text-black fw-bold">Paramètres du compte</h2>
+    <section class="flex flex-col align-start justify-start m-auto bg-white p-4 mt-6 shadow-xs rounded-lg w-[90%]">
+        <h1 class="font-bold text-2xl">Paramètres du compte</h1>
+        <form id="send-verification" method="post" action="{{ route('verification.send') }}">@csrf</form>
 
-                <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-                    @csrf
-                </form>
+        <form class="mt-3 flex flex-col me-auto " method="post" action="{{ route('profile.update') }}">
+            <h2 class="text-lg mb-2">Informations personnelles</h2>
+            @csrf
+            @method('patch')
 
-                <form class="border border-2 p-4 rounded-3 border-gray" method="post" action="{{ route('profile.update') }}">
-                    <h5 class="text-black mb-2">Information personelles</h5>
-                    @csrf
-                    @method('patch')
-                    <div class="d-flex flex-column">
-                        <label for="name">Nom</label>
-                        <input id="name" class=" border-0 shadow-sm rounded-3 px-2" name="name" type="text" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name" />
-                        @if($errors->get('name'))
-                            <div class="error-message">{{ implode(', ', $errors->get('name')) }}</div>
+
+            <x-input-label for="name" :value="__('Nom')" />
+            <x-text-input id="name" class="border-0 shadow-sm rounded-3 px-3 py-1 mt-1" name="name" type="text" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name" />
+            @if($errors->get('name'))
+                <div class="error-message">{{ implode(', ', $errors->get('name')) }}</div>
+            @endif
+
+
+            <x-input-label class="mt-2" for="email" :value="__('Email')" />
+            <x-text-input id="email" class="border-0 shadow-sm rounded-3 px-3 py-1 mt-1" name="email" type="email" value="{{ old('email', $user->email) }}" required autocomplete="username" />
+            @if($errors->get('email'))
+                <div class="error-message">{{ implode(', ', $errors->get('email')) }}</div>
+            @endif
+
+                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
+                    <div class="mt-2">
+                        <p>Votre adresse email n'est pas vérifiée. <button form="send-verification">Cliquez ici pour renvoyer l'email de vérification.</button></p>
+                        @if (session('status') === 'verification-link-sent')
+                            <p>Un nouveau lien de vérification a été envoyé à votre adresse email.</p>
                         @endif
                     </div>
-
-                    <div class="d-flex flex-column">
-                        <label for="email">Email</label>
-                        <input id="email"  class=" border-0 shadow-sm rounded-3 px-2" name="email" type="email" value="{{ old('email', $user->email) }}" required autocomplete="username" />
-                        @if($errors->get('email'))
-                            <div class="error-message">{{ implode(', ', $errors->get('email')) }}</div>
-                        @endif
-
-                        @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
-                            <div>
-                                <p>Your email address is unverified.<button form="send-verification">Click here to re-send the verification email.</button></p>
-
-                                @if (session('status') === 'verification-link-sent')
-                                    <p>
-                                        A new verification link has been sent to your email address.
-                                    </p>
-                                @endif
-                            </div>
-                        @endif
-                    </div>
-
-                    <div class="d-flex">
-                        <div class="ms-auto mt-3"><x-submit-button>Sauvegarder les modifications</x-submit-button></div>
-                        @if (session('status') === 'profile-updated')
-                            <p class="status-message">Sauvegardé</p>
-                        @endif
-                    </div>
-                </form>
-
-
-
-
-                <form method="post" action="{{ route('password.update') }}" class="border border-2 p-4 rounded-3 border-gray mt-4">
-                    @csrf
-                    @method('put')
-                    <h5 class="text-black mb-2">Modifier le mot de passe</h5>
-
-                    <div class="d-flex flex-column">
-                        <label for="update_password_current_password">Mot de passe actuel</label>
-                        <input class=" border-0 shadow-sm rounded-3 px-2" id="update_password_current_password" name="current_password" type="password" autocomplete="current-password" />
-                        @if($errors->updatePassword->get('current_password'))
-                            <div class="error-message">{{ implode(', ', $errors->updatePassword->get('current_password')) }}</div>
-                        @endif
-                    </div>
-
-                    <div class="d-flex flex-column">
-                        <label for="update_password_password">Nouveau mot de passe</label>
-                        <input class=" border-0 shadow-sm rounded-3 px-2" id="update_password_password" name="password" type="password" autocomplete="new-password" />
-                        @if($errors->updatePassword->get('password'))
-                            <div class="error-message">{{ implode(', ', $errors->updatePassword->get('password')) }}</div>
-                        @endif
-                    </div>
-
-                    <div class="d-flex flex-column">
-                        <label for="update_password_password_confirmation">Confirmez le mot de passe</label>
-                        <input class=" border-0 shadow-sm rounded-3 px-2" id="update_password_password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" />
-                        @if($errors->updatePassword->get('password_confirmation'))
-                            <div class="error-message">{{ implode(', ', $errors->updatePassword->get('password_confirmation')) }}</div>
-                        @endif
-                    </div>
-
-                    <div class="form-buttons d-flex">
-                        <div class="ms-auto mt-3"><x-submit-button>Sauvegarder les modifications</x-submit-button></div>
-                        @if (session('status') === 'password-updated')
-                            <p class="status-message">Saved.</p>
-                        @endif
-                    </div>
-                </form>
-
-
-
-                <button class="mt-4 bg-transparent px-3 py-1 rounded-3 border border-2 border-danger text-danger fw-semibold m-auto" onclick="openModal('confirm-user-deletion')">Supprimer le compte</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <section>
-
-
-
+                @endif
+
+                    <x-submit-button class="mt-4">Sauvegarder les modifications</x-submit-button>
+
+                @if (session('status') === 'profile-updated')
+                    <p class="status-message">Sauvegardé</p>
+                @endif
+
+        </form>
+
+        <!-- Formulaire de changement de mot de passe -->
+        <form method="post"class="mt-3 flex flex-col me-auto " action="{{ route('password.update') }}">
+            @csrf
+            @method('put')
+            <h2 class="text-black mb-2">Modifier le mot de passe</h2>
+
+            <x-input-label for="update_password_current_password" :value="__('Mot de passe actuel')" />
+            <x-text-input id="update_password_current_password" class="border-0 shadow-sm rounded-3 px-3 py-1 mt-1" name="current_password" type="password" autocomplete="current-password" />
+            @if($errors->updatePassword->get('current_password'))
+                <div class="error-message">{{ implode(', ', $errors->updatePassword->get('current_password')) }}</div>
+            @endif
+
+            <x-input-label for="update_password_password" :value="__('Nouveau mot de passe')" />
+            <x-text-input id="update_password_password" class="border-0 shadow-sm rounded-3 px-3 py-1 mt-1" name="password" type="password" autocomplete="new-password" />
+            @if($errors->updatePassword->get('password'))
+                <div class="error-message">{{ implode(', ', $errors->updatePassword->get('password')) }}</div>
+            @endif
+
+            <x-input-label for="update_password_password_confirmation" :value="__('Confirmez le mot de passe')" />
+            <x-text-input id="update_password_password_confirmation" class="border-0 shadow-sm rounded-3 px-3 py-1 mt-1" name="password_confirmation" type="password" autocomplete="new-password" />
+            @if($errors->updatePassword->get('password_confirmation'))
+                <div class="error-message">{{ implode(', ', $errors->updatePassword->get('password_confirmation')) }}</div>
+            @endif
+
+            <x-submit-button class="mt-4">Sauvegarder les modifications</x-submit-button>
+            @if (session('status') === 'password-updated')
+                <p class="status-message">Saved.</p>
+            @endif
+
+        </form>
+        <div class="flex justify-start">
+            <x-secondary-button class="text-center mt-4" onclick="openModal('confirm-user-deletion')"><i class="fa-solid fa-trash me-2"></i> Supprimer le compte</x-secondary-button>
+        </div>
+        <!-- Formulaire de suppression du compte -->
+        <form method="post" action="{{ route('profile.destroy') }}" class="mt-4">
+            @csrf
+            @method('delete')
 
                 <div id="confirm-user-deletion" class="modal" style="display: none;">
                     <form method="post" action="{{ route('profile.destroy') }}">
                         @csrf
                         @method('delete')
 
-                        <h2>{{ __('Êtes-vous sûr de vouloir supprimer votre compte ?') }}</h2>
+                        <h2>Êtes-vous sûr de vouloir supprimer votre compte ?</h2>
 
                         <p>
-                            {{ __('Une fois que votre compte est supprimé, toutes ses ressources et données seront définitivement supprimées. Veuillez entrer votre mot de passe pour confirmer que vous souhaitez supprimer définitivement votre compte.') }}
+                            Une fois que votre compte est supprimé, toutes ses ressources et données seront définitivement supprimées. Veuillez entrer votre mot de passe pour confirmer que vous souhaitez supprimer définitivement votre compte.
                         </p>
 
                         <div>
-                            <label for="password">{{ __('Mot de passe') }}</label>
-                            <input id="password" name="password" type="password" placeholder="{{ __('Mot de passe') }}" />
+                            <x-input-label for="password">{{ __('Mot de passe') }}</x-input-label>
+                            <x-text-input class="px-3 py-1 mb-2" id="password" name="password" type="password" placeholder="{{ __('Mot de passe') }}" />
                             @if($errors->userDeletion->get('password'))
                                 <div class="error-message">{{ implode(', ', $errors->userDeletion->get('password')) }}</div>
                             @endif
                         </div>
 
                         <div>
-                            <button type="button" onclick="closeModal('confirm-user-deletion')">
+                            <x-secondary-button type="button" onclick="closeModal('confirm-user-deletion')">
                                 {{ __('Annuler') }}
-                            </button>
+                            </x-secondary-button>
 
-                            <button type="submit">
+                            <x-secondary-button  type="submit">
                                 {{ __('Supprimer le compte') }}
-                            </button>
+                            </x-secondary-button>
                         </div>
                     </form>
                 </div>
-            </section>
+
 
             <script>
                 function openModal(modalId) {
@@ -194,6 +124,7 @@
 {{--
             @include('profile.partials.update-password-form')
             @include('profile.partials.delete-user-form') --}}
-        </div>
-    </div>
+
+
+        </section>
 </x-guest-layout>

@@ -34,7 +34,7 @@
 
 
         <div class="p-2">
-            <x-submit-button>S'inscrire</x-submit-button>
+            <x-submit-button class="w-full">S'inscrire</x-submit-button>
         </div>
 
             <p class="text-center mb-4">
