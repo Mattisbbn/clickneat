@@ -70,6 +70,14 @@
             @endif
 
         </form>
+<hr class="my-4 border-gray-300">
+
+<form action="{{ route('logout') }}" method="post">
+    @csrf
+    @method('post')
+    <x-submit-button class="mt-4"><i class="fa-solid fa-right-from-bracket me-2"></i>Se deconnecter</x-submit-button>
+</form>
+
         <div class="flex justify-start">
             <x-secondary-button class="text-center mt-4" onclick="openModal('confirm-user-deletion')"><i class="fa-solid fa-trash me-2"></i> Supprimer le compte</x-secondary-button>
         </div>
