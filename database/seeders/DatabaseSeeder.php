@@ -12,6 +12,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Table;
 use App\Models\Allergens;
 use App\Models\Ingredients;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,26 +21,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
             'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'role' => 'admin'
+            'email' => 'admin@test.com',
+            'role' => 'admin',
+            'password' => Hash::make('testadmin@1122'),
         ]);
 
         User::factory()->create([
             'name' => 'Client',
-            'email' => 'client@example.com',
+            'email' => 'client@test.com',
             'role' => 'client',
-
+            'password' => Hash::make('testclient@1122'),
         ]);
 
         User::factory()->create([
             'name' => 'Restaurant',
-            'email' => 'restaurant@example.com',
+            'email' => 'restaurant@test.com',
             'role' => 'restaurateur',
-            'restaurant_id' => 1
+            'restaurant_id' => 1,
+            'password' => Hash::make('testrestau@1122'),
         ]);
 
         Restaurant::factory(25)->create();
