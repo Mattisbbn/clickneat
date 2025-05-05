@@ -4,7 +4,7 @@
 @section("content")
 
 <a class="text-center p-2 bg-white mb-2 text-black text-decoration-none rounded-3 shadow-sm" href="{{ route("categories.create") }}">Créer une catégorie</a>
-<div class="p-3 bg-white shadow rounded-3 overflow-hidden">
+<div class="p-3 bg-white shadow rounded-3 overflow-hidden ">
     <table class=" w-100  ">
 
         <thead>
@@ -15,7 +15,7 @@
                 <td class="fw-semibold text-center">Action</td>
             </tr>
         </thead>
-    
+
         <tbody>
             @foreach( $categories as $category )
                 <tr class="border-bottom">
@@ -34,9 +34,9 @@
                 </tr>
             @endforeach
         </tbody>
-    </table> 
+    </table>
 </div>
-       
+
 
 
 @endsection

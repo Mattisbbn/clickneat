@@ -3,7 +3,7 @@
     <section class="flex flex-wrap w-10/12">
 
         <x-card class="m-auto flex flex-col">
-            <div class="flex justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold">Modifier un article</h1>
                 <a href="{{ route('restaurateur.items.index') }}" class="text-clementine-500"><i class="fa-solid fa-xmark text-xl"></i></a>
             </div>

@@ -2,6 +2,13 @@
 <html lang="fr">
   <head>
     <title>Click&Eat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Click&Eat" />
+    <meta name="author" content="Babin Mattis" />
+    <meta name="description" content="Click&Eat : commande en ligne facile et rapide pour les restaurants et les clients." />
+    <meta name="keywords" content="Click&Eat, commande en ligne, restaurants, panier, repas, livraison, gestion de commandes" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="{{ asset('img/favicon.svg') }}" type="image/svg+xml">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
