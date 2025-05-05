@@ -39,15 +39,6 @@
                                 <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash text-clementine-500"></i></button>
                             </form>
                         </td>
-
-                            {{-- <a href="{{ route('items.show', $item->id) }}" class="btn btn-primary">Voir</a>
-                            <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning">Modifier</a>
-                            <form action="{{ route('items.destroy', $item->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form> --}}
-
                     </tr>
                 @endforeach
             </tbody>
