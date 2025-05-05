@@ -28,6 +28,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (Auth::user()->role === 'restaurateur') {
+            return redirect()->route('restaurateur.items.index');
+        }
+
         return redirect()->intended();
     }
 
