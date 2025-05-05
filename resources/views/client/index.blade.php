@@ -7,7 +7,7 @@
         <div class="relative z-10 backdrop-blur w-full h-full flex flex-col my-auto">
             <div class="flex my-auto flex-col ms-[5%] ">
                 <div class="xl:w-4/12 md:w-6/12 sm:w-10/12 ">
-                    <h1 class="fw-bold md:text-6xl text-4xl !text-white">TEST DEPLOY</h1>
+                    <h1 class="fw-bold md:text-6xl text-4xl !text-white">Click & Eat</h1>
                     <h5 class="mt-4 md:text-xl text-lg !text-white">Commandez facilement dans votre restaurant préféré sans attendre</h5>
                 </div>
 
