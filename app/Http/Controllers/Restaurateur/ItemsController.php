@@ -39,7 +39,7 @@ class ItemsController extends Controller
             $restaurantId = auth()->user()->restaurant_id;
 
             // Créer le dossier s'il n'existe pas
-            $directory = storage_path('restaurants/' . $restaurantId . '/items');
+            $directory = storage_path('app/public/restaurants/' . $restaurantId . '/items');
             if (!file_exists($directory)) {
                 mkdir($directory, 0777, true);
             }
