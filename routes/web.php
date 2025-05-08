@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\BasketController;
+// use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\Clients\RestaurantController as ClientRestaurantController;
-use App\Http\Controllers\DashboardController;
+// use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandpageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Restaurateur\OrderController as RestaurateurOrderController;
 use App\Http\Controllers\Restaurateur\ItemsController as RestaurateurItemController;
 use App\Http\Controllers\Restaurateur\CategoriesController as RestaurateurCategoryController;
+use App\Http\Controllers\ContactController;
 
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
@@ -69,13 +70,13 @@ Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->name("r
 
 
 
+Route::get("/contact",[ContactController::class,"view"])->name("contact");
+Route::post("/contact", [ContactController::class, "send"])->name("contact.send");
 
 
 
 
 
-
-
-
+Route::view("/mentions-legales", "guest.legal")->name("legal");
 
 require __DIR__.'/auth.php';
