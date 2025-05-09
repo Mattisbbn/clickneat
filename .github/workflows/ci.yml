@@ -23,3 +23,4 @@ jobs:
             sudo php artisan config:clear
             sudo php artisan view:clear
             sudo php artisan route:clear
+            sudo npm run build

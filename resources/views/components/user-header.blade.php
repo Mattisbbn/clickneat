@@ -6,20 +6,45 @@
         <img src="{{ asset('img/logo-header.svg') }}" alt="logo" class="h-full">
     </a>
 
-    <ul class="flex list-none align-middle justify-center gap-2">
+    <ul class="flex list-none align-middle justify-center items-center gap-2">
+
+@guest
         <li>
-            <a href="{{ route('profile.edit') }}">
-                <svg class="h-full w-7">
-                    <use xlink:href="#user"></use>
-                </svg>
+            <a href="{{ route('login') }}">
+               <i class="fa-solid text-2xl fa-arrow-right-to-bracket text-clementine-500"></i>
             </a>
         </li>
+@endguest
+
+
+
+
+
+
+
+        @auth
+        <li>
+            <a href="{{ route('profile.edit') }}">
+               <i class="fa-solid text-2xl fa-user text-clementine-500"></i>
+            </a>
+        </li>
+
+            @if(auth()->user()->role == "restaurateur")
+            <li>
+                <a href="{{ route('restaurateur.orders.index') }}">
+
+                        <i class="fa-solid text-2xl fa-shop text-clementine-500"></i>
+
+                </a>
+            </li>
+            @endif
+        @endauth
+
+
         <li>
             <!-- Label qui déclenche le checkbox -->
             <label for="toggleCart" class="cursor-pointer">
-                <svg class="h-full w-7">
-                    <use xlink:href="#cart"></use>
-                </svg>
+                <i class="fa-solid text-2xl fa-cart-shopping text-clementine-500"></i>
             </label>
         </li>
     </ul>
