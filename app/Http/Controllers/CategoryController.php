@@ -11,10 +11,10 @@ use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
-    public function view(): View{
+    public function index(): View{
 
         $categories = Category::with('restaurant')->get();
-        return view('categories.index', ['categories' => $categories]);
+        return view('admin.categories.index', ['categories' => $categories]);
     }
 
     public function delete($categoryId): RedirectResponse{
@@ -22,18 +22,18 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect('/categories');
+        return redirect('/admin/categories');
     }
 
     public function show($categoryId): view{
         $category = Category::find($categoryId,["*"]);
 
-        return view('categories.show', ['category' => $category]);
+        return view('admin.categories.show', ['category' => $category]);
     }
 
     public function edit($categoryId): view{
         $category = Category::find($categoryId,["*"]);
-        return view('categories.edit', ['category' => $category]);
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     public function update(Request $request,$categoryId): RedirectResponse{
@@ -41,14 +41,14 @@ class CategoryController extends Controller
 
         $category->name = $request->input('name');
         $category->save();
-        return redirect('/categories');
+        return redirect('/admin/categories');
     }
 
 
     public function create(Request $request): View{
         $restaurants = Restaurant::all();
 
-        return view('categories.create', ['restaurants' => $restaurants]);
+        return view('admin.categories.create', ['restaurants' => $restaurants]);
     }
 
 
@@ -58,6 +58,6 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->restaurant_id = $request->restaurantId;
         $category->save();
-       return redirect()->route("categories");
+       return redirect()->route("categories.index");
     }
 }

@@ -1,9 +1,9 @@
 @extends("dashboard.index")
-@section("title","Categories")
-@section("name","Catégories")
+@section("title","Articles")
+@section("name","Articles")
 @section("content")
 
-<a class="text-center p-2 bg-white mb-2 text-black text-decoration-none rounded-3 shadow-sm" href="{{ route("categories.create") }}">Créer une catégorie</a>
+<a class="text-center p-2 bg-white mb-2 text-black text-decoration-none rounded-3 shadow-sm" href="{{ route("items.create") }}">Créer un article</a>
 <div class="p-3 bg-white shadow rounded-3 overflow-hidden ">
     <table class=" w-100  ">
 
@@ -17,19 +17,19 @@
         </thead>
 
         <tbody>
-            @foreach( $categories as $category )
+            @foreach( $items as $item )
                 <tr class="border-bottom">
-                    <td class="p-1">{{ $category->id }}</td>
-                    <td class="p-1">{{ $category->name }}</td>
-                    <td class="p-1">{{ $category->restaurant->name}}</td>
+                    <td class="p-1">{{ $item->id }}</td>
+                    <td class="p-1">{{ $item->name }}</td>
+                    <td class="p-1">{{ $item->category->restaurant->name}}</td>
                     <td class="d-flex p-1 justify-content-center align-items-center">
-                        <a class="text-decoration-none text-black shadow rounded-3 p-2 me-2" href="{{ route("categories.show",$category->id) }}">Voir</a>
-                        <form method="post" action="{{ route("categories.destroy",[$category->id]) }}">
+                        <a class="text-decoration-none text-black shadow rounded-3 p-2 me-2" href="{{ route("items.show",$item->id) }}">Voir</a>
+                        <form method="post" action="{{ route("items.destroy",[$item->id]) }}">
                             @csrf
                             @method("DELETE")
                             <button class="text-decoration-none text-black shadow rounded-3 p-2 bg-white border-0 me-2" type="submit">Supprimer</button>
                         </form>
-                        <a class="text-decoration-none text-black shadow rounded-3 p-2 me-2" href="{{ route("categories.edit",$category->id) }}">Modifier</a>
+                        <a class="text-decoration-none text-black shadow rounded-3 p-2 me-2" href="{{ route("items.edit",$item->id) }}">Modifier</a>
                     </td>
                 </tr>
             @endforeach

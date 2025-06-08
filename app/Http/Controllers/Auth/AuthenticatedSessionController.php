@@ -30,6 +30,8 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::user()->role === 'restaurateur') {
             return redirect()->route('restaurateur.items.index');
+        }else if (Auth::user()->role === 'admin') {
+            return redirect()->route('restaurants.index');
         }
 
         return redirect()->intended();
