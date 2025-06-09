@@ -16,7 +16,7 @@ use App\Http\Controllers\Restaurateur\CategoriesController as RestaurateurCatego
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Restaurateur\SettingsController as RestaurateurSettingController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\Admin\IngredientController;
 
 
 Route::middleware('FetchUserCart')->group(function (){
@@ -51,6 +51,7 @@ Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
     Route::resource("restaurants",RestaurantController::class);
     Route::resource("categories",CategoryController::class);
     Route::resource("articles",ItemController::class);
+    Route::resource("ingredients",IngredientController::class);
 });
 
 

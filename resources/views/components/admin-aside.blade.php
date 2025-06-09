@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                    <a href="{{ route("ingredients.index") }}" class="nav-link {{ request()->is('admin/ingredients*') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-egg-fried"></i>
                         <p>Ingredients</p>
                     </a>
