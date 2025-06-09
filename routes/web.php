@@ -17,7 +17,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Restaurateur\SettingsController as RestaurateurSettingController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\IngredientController;
-
+use App\Http\Controllers\AllergenController;
 
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
@@ -52,6 +52,7 @@ Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
     Route::resource("categories",CategoryController::class);
     Route::resource("articles",ItemController::class);
     Route::resource("ingredients",IngredientController::class);
+    Route::resource("allergens",AllergenController::class);
 });
 
 

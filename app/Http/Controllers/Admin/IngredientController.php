@@ -23,4 +23,20 @@ class IngredientController extends Controller
         $ingredient->save();
         return redirect()->route('ingredients.index');
     }
+    public function edit($id){
+        $ingredient = Ingredient::find($id);
+        return view('admin.ingredients.edit',compact("ingredient"));
+    }
+    public function update(Request $request, $id){
+        $ingredient = Ingredient::find($id);
+        $ingredient->name = $request->name;
+        $ingredient->save();
+        return redirect()->route('ingredients.index');
+    }
+
+    public function destroy($id){
+        $ingredient = Ingredient::find($id);
+        $ingredient->delete();
+        return redirect()->route('ingredients.index');
+    }
 }

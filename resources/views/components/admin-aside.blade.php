@@ -39,7 +39,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                    <a href="{{ route("allergens.index") }}" class="nav-link {{ request()->is('admin/allergens*') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-egg-fried"></i>
                         <p>Allergenes</p>
                     </a>
