@@ -54,16 +54,6 @@ Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->name("restaurateur.")->group(function () {
     Route::get("/",[RestaurateurOrderController::class,"index"])->name("restaurateur.index");
     Route::resource("orders",RestaurateurOrderController::class);

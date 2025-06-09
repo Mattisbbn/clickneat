@@ -17,11 +17,11 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function getformatedPriceAttribute(): string
+    public function getFormatedPriceAttribute(): string
     {
         return number_format($this->price / 100, 2, ',', ' ') . ' €';
     }
-    public function getFormattedCostAttribute(): string
+    public function getFormatedCostAttribute(): string
     {
         return number_format($this->cost / 100, 2, ',', ' ') . ' €';
     }
