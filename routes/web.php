@@ -15,7 +15,7 @@ use App\Http\Controllers\Restaurateur\ItemsController as RestaurateurItemControl
 use App\Http\Controllers\Restaurateur\CategoriesController as RestaurateurCategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Restaurateur\SettingsController as RestaurateurSettingController;
-
+use App\Http\Controllers\AdminController;
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
 
-    Route::get("/",[RestaurantController::class,"view"])->name("admin.index");
+    Route::get("/",[AdminController::class,"view"])->name("admin.index");
 
     Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.index");
 

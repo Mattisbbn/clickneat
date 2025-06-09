@@ -9,7 +9,7 @@
             </li>
 
             @if (Auth::check())
-                <a href="#" class="nav-link dropdown-toggle d-flex" data-bs-toggle="dropdown">
+                <a href="#" class="nav-link d-flex">
                     <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
@@ -19,7 +19,6 @@
                     </form>
                 </a>
             @endif
-
         </ul>
     </div>
 </nav>
