@@ -60,4 +60,11 @@ class CategoryController extends Controller
         $category->save();
        return redirect()->route("categories.index");
     }
+
+    public function destroy($categoryId): RedirectResponse{
+        $category = Category::find($categoryId,["*"]);
+        $category->delete();
+        return redirect()->route("categories.index");
+    }
+
 }

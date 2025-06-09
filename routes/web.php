@@ -16,6 +16,9 @@ use App\Http\Controllers\Restaurateur\CategoriesController as RestaurateurCatego
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Restaurateur\SettingsController as RestaurateurSettingController;
 use App\Http\Controllers\AdminController;
+
+
+
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
@@ -44,21 +47,22 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
-
     Route::get("/",[AdminController::class,"view"])->name("admin.index");
-
-    Route::get("/restaurants",[RestaurantController::class,"view"])->name("restaurants.index");
-
-    Route::get("/restaurants/{id}/show",[RestaurantController::class,"show"])->name("restaurants.admin.show");
-    Route::delete("/restaurants/{id}/delete",[RestaurantController::class,"delete"])->name("restaurants.delete");
-    Route::get("/restaurants/{id}/edit",[RestaurantController::class,"edit"])->name("restaurants.edit");
-    Route::put("/restaurants/{id}/update",[RestaurantController::class,"update"])->name("restaurants.update");
-    Route::get("/restaurants/create",[RestaurantController::class,"create"])->name("restaurants.create");
-    Route::post("/restaurants",[RestaurantController::class,"store"])->name("restaurants.store");
-
+    Route::resource("restaurants",RestaurantController::class);
     Route::resource("categories",CategoryController::class);
-    Route::resource("items",ItemController::class);
+    Route::resource("articles",ItemController::class);
 });
+
+
+
+
+
+
+
+
+
+
+
 
 Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->name("restaurateur.")->group(function () {
     Route::get("/",[RestaurateurOrderController::class,"index"])->name("restaurateur.index");

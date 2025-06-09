@@ -11,16 +11,44 @@
 
 
                 <li class="nav-item">
-                    <a href="{{ route("restaurants.index") }}" class="nav-link">
+                    <a href="{{ route("restaurants.index") }}" class="nav-link {{ request()->is('admin/restaurants*') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-shop-window"></i>
                         <p>Restaurants</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route("categories.index") }}" class="nav-link">
-                        <i class="nav-icon bi bi-palette"></i>
+                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-square"></i>
                         <p>Categories</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route("articles.index") }}" class="nav-link {{ request()->is('admin/articles*') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-fork-knife"></i>
+                        <p>Articles</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-egg-fried"></i>
+                        <p>Ingredients</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-egg-fried"></i>
+                        <p>Allergenes</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-egg-fried"></i>
+                        <p>Commandes</p>
                     </a>
                 </li>
 

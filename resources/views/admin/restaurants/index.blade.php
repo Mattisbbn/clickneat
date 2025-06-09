@@ -25,7 +25,7 @@
                     <td class="p-1">{{ $restaurant->closing_hours }}</td>
                     <td class="d-flex p-1 justify-content-center align-items-center">
                         <a class="text-decoration-none text-black shadow rounded-3 p-2 me-2" href="{{ route("restaurants.show",$restaurant->id) }}">Voir</a>
-                        <form method="post" action="{{ route("restaurants.delete",[$restaurant->id]) }}">
+                        <form method="post" action="{{ route("restaurants.destroy",[$restaurant->id]) }}">
                             @csrf
                             @method("DELETE")
                             <button class="text-decoration-none text-black shadow rounded-3 p-2 bg-white border-0 me-2" type="submit">Supprimer</button>
