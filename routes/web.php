@@ -19,9 +19,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\AllergenController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\PaymentController;
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
-    Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
+    Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurant.show");
     Route::get("/restaurants",[ClientRestaurantController::class,"view"])->name("restaurants.view");
     Route::get("/article/{restaurant_id}/{id}",[ClientRestaurantController::class,"show"])->name("items.show");
 
@@ -34,6 +35,12 @@ Route::middleware(['auth','FetchUserCart','Role:client'])->group(function () {
     Route::get("/panier",[CartController::class,"view"])->name("cart.index");
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/commandes', [OrderController::class, 'view'])->name('orders.index');
+
+    // Routes de paiement
+    Route::get('/paiement', [PaymentController::class, 'showPayment'])->name('cart.payment');
+    Route::post('/create-checkout-session', [PaymentController::class, 'createCheckoutSession'])->name('payment.checkout');
+    Route::get('/paiement/succes', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/paiement/annule', [PaymentController::class, 'paymentCancel'])->name('payment.cancel');
 
 });
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\Table;
 use App\Models\Reservation;
@@ -11,7 +12,7 @@ use App\Models\Reservation;
 class CartController extends Controller
 {
     public function store(int $id){
-        $userId = auth()->id();
+        $userId = Auth::id();
         $cartItem = Item::where('id', $id)->first();
         $cartRestaurantId = $cartItem->category->restaurant->id;
 
@@ -90,9 +91,31 @@ class CartController extends Controller
         $cart = Cart::where('user_id', $userId)
                     ->with('item.category.restaurant')
                     ->get();
+
+        // Vérifier si le panier n'est pas vide
+        if ($cart->isEmpty()) {
+            return view("cart.index", [
+                'cart' => $cart,
+                'tables' => collect(),
+                'total' => 0
+            ]);
+        }
+
         $cartRestaurant = $cart->first()->item->category->restaurant->id;
         $tables = Table::where('restaurant_id', $cartRestaurant)->get();
 
-        return view("cart.index",['tables'=>$tables]);
+        // Calculer le total
+        $total = $cart->sum(function ($cartItem) {
+            return $cartItem->item->price * $cartItem->quantity;
+        });
+
+        // Formater le total en euros
+        $formattedTotal = number_format($total / 100, 2) . '€';
+
+        return view("cart.index", [
+            'cart' => $cart,
+            'tables' => $tables,
+            'total' => $formattedTotal
+        ]);
     }
 }

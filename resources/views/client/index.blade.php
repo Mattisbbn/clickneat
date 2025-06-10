@@ -21,7 +21,7 @@
         <div class="overflow-hidden">
             <x-basic-swiper>
                 @foreach ($restaurants as $restaurant )
-                <a class="swiper-slide p-2"  href="{{ route("restaurants.show",$restaurant->id) }}">
+                <a class="swiper-slide p-2"  href="{{ route("restaurant.show",$restaurant->id) }}">
                     <div class="rounded-lg bg-white shadow-md flex flex-col">
                         <img src="{{ $restaurant->logo_url }}" class="img-fluid rounded-t" alt="Card title">
                         <div class="p-2">
