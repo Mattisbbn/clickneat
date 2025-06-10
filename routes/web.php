@@ -18,7 +18,7 @@ use App\Http\Controllers\Restaurateur\SettingsController as RestaurateurSettingC
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\AllergenController;
-
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 Route::middleware('FetchUserCart')->group(function (){
     Route::get("/",[LandpageController::class,"view"])->name("landpage.index");
     Route::get("/restaurant/{id}",[RestaurantController::class,"show"])->name("restaurants.show");
@@ -53,6 +53,7 @@ Route::middleware(['auth','Role:admin'])->prefix('admin')->group(function () {
     Route::resource("articles",ItemController::class);
     Route::resource("ingredients",IngredientController::class);
     Route::resource("allergens",AllergenController::class);
+    Route::resource("orders",AdminOrderController::class);
 });
 
 

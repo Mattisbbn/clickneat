@@ -46,7 +46,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route("categories.index") }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                    <a href="{{ route("orders.index") }}" class="nav-link {{ request()->is('admin/orders*') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-egg-fried"></i>
                         <p>Commandes</p>
                     </a>

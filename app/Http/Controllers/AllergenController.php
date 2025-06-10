@@ -53,7 +53,8 @@ class AllergenController extends Controller
     public function edit(string $id)
     {
         $allergen = Allergens::find($id);
-        return view('admin.allergens.edit',compact('allergen'));
+        $items = Item::all();
+        return view('admin.allergens.edit',compact('allergen','items'));
     }
 
     /**
