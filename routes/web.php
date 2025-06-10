@@ -63,9 +63,9 @@ Route::middleware(['auth','Role:restaurateur'])->prefix('restaurateur')->name("r
     Route::resource("categories",RestaurateurCategoryController::class);
     Route::resource("settings",RestaurateurSettingController::class);
 });
-Route::get("/contact",[ContactController::class,"view"])->name("contact");
+Route::get("/contact",[ContactController::class,"view"])->name("contact.view");
 Route::post("/contact", [ContactController::class, "send"])->name("contact.send");
-Route::view("/mentions-legales", "guest.legal")->name("legal");
+Route::view("/mentions-legales", "guest.legal")->name("legal.view");
 
 
 require __DIR__.'/auth.php';
