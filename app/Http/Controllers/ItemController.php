@@ -36,16 +36,24 @@ class ItemController extends Controller
     }
 
     public function edit($id){
-
+        $article = Item::find($id);
+        $categories = Category::all();
+        return view("admin.items.edit",data: compact("article","categories"));
     }
 
     public function update(Request $request, $id){
-
+        $article = Item::find($id);
+        $article->name = $request->name;
+        $article->description = $request->description;
+        $article->price = $request->price * 100;
+        $article->cost = $request->cost * 100;
+        $article->save();
+        return redirect()->route("articles.index");
     }
 
     public function destroy($id){
-        $item = Item::find($id);
-        $item->delete();
+        $article = Item::find($id);
+        $article->delete();
         return redirect()->route("articles.index");
     }
 }
